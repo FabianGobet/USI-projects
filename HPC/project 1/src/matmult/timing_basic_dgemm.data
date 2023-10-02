@@ -1,0 +1,30 @@
+#Description:	Naive, three-loop dgemm.
+
+Size: 31	Mflop/s:  6841.11	Percentage:  0.10
+Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
+Size: 32	Mflop/s:  6410.21	Percentage:  0.10
+Size: 96	Mflop/s:  4099.93	Percentage:  0.06
+Size: 97	Mflop/s:  4151.17	Percentage:  0.06
+Size: 127	Mflop/s:  3893.63	Percentage:  0.06
+Size: 128	Mflop/s:  2433.57	Percentage:  0.04
+Size: 129	Mflop/s:  3878.36	Percentage:  0.06
+Size: 191	Mflop/s:   3607.4	Percentage:  0.05
+Size: 192	Mflop/s:  3676.08	Percentage:  0.05
+Size: 229	Mflop/s:  3537.58	Percentage:  0.05
+Size: 255	Mflop/s:  3368.81	Percentage:  0.05
+Size: 256	Mflop/s:  2742.47	Percentage:  0.04
+Size: 257	Mflop/s:  3354.41	Percentage:  0.05
+Size: 319	Mflop/s:   3095.3	Percentage:  0.05
+Size: 320	Mflop/s:  2655.81	Percentage:  0.04
+Size: 321	Mflop/s:  3079.18	Percentage:  0.05
+Size: 417	Mflop/s:  2836.01	Percentage:  0.04
+Size: 479	Mflop/s:   2705.4	Percentage:  0.04
+Size: 480	Mflop/s:  2502.49	Percentage:  0.04
+Size: 511	Mflop/s:  2666.02	Percentage:  0.04
+Size: 512	Mflop/s:  879.923	Percentage:  0.01
+Size: 639	Mflop/s:   2593.4	Percentage:  0.04
+Size: 640	Mflop/s:  2491.39	Percentage:  0.04
+Size: 767	Mflop/s:  2519.99	Percentage:  0.04
+Size: 768	Mflop/s:  2443.28	Percentage:  0.04
+Size: 769	Mflop/s:   2509.6	Percentage:  0.04
+#Average percentage of Peak = 0.0484533

@@ -1,0 +1,28 @@
+const int block_size = 10*64/8;
+
+  double* transa = (double*)(malloc(n*n*sizeof(double)));
+ 
+  for (int bi = 0; bi < n; bi += block_size) 
+        for (int bj = 0; bj < n; bj += block_size) 
+
+            for (int i = bi; i < (bi + block_size<n ? bi + block_size: n); ++i) 
+                for (int j = bj; j < (bj + block_size<n? bj + block_size: n); ++j) 
+                    transa[i * n + j] = A[j * n + i];
+
+  for (int i = 0; i < n; i += block_size) 
+        for (int j = 0; j < n; j += block_size) 
+            for (int k = 0; k < n; k += block_size) {
+                
+                int i_max = (i + block_size < n ? i + block_size : n);
+                int j_max = (j + block_size < n ? j + block_size : n);
+                int k_max = (k + block_size < n ? k + block_size : n);
+
+                for (int ii = i; ii < i_max; ++ii) {
+                    for (int jj = j; jj < j_max; ++jj) {
+                        double sum = 0.0;
+                        for (int kk = k; kk < k_max; ++kk) 
+                            sum += transa[ii * n + kk] * B[jj * n + kk];
+                        C[ii * n + jj] += sum;
+                    }
+                }
+            }

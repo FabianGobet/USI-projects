@@ -1,0 +1,119 @@
+(base) fabiangobet@Fabians-MBP matmult % make
+rm -f benchmark-naive benchmark-blocked benchmark-blas benchmark.o dgemm-naive.o dgemm-blocked.o dgemm-blas.o  
+gcc -target x86_64-apple-darwin -c -Wall -std=gnu99 -O2 benchmark.c
+gcc -target x86_64-apple-darwin -c -Wall -std=gnu99 -O2 dgemm-naive.c
+gcc -target x86_64-apple-darwin -o benchmark-naive benchmark.o dgemm-naive.o -lrt -Wl,--no-as-needed -L/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl -m64 -I/include
+ld: unknown options: --no-as-needed 
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [benchmark-naive] Error 1
+(base) fabiangobet@Fabians-MBP matmult % make
+rm -f benchmark-naive benchmark-blocked benchmark-blas benchmark.o dgemm-naive.o dgemm-blocked.o dgemm-blas.o  
+gcc -target x86_64-apple-darwin -c -Wall -std=gnu99 -O2 benchmark.c
+gcc -target x86_64-apple-darwin -c -Wall -std=gnu99 -O2 dgemm-naive.c
+gcc -target x86_64-apple-darwin -o benchmark-naive benchmark.o dgemm-naive.o -lrt  -L/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl -m64 -I/include
+ld: warning: search path '/lib/intel64' not found
+ld: library 'rt' not found
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [benchmark-naive] Error 1
+(base) fabiangobet@Fabians-MBP matmult % make
+rm -f benchmark-naive benchmark-blocked benchmark-blas benchmark.o dgemm-naive.o dgemm-blocked.o dgemm-blas.o  
+gcc -target x86_64-apple-darwin -c -Wall -std=gnu99 -O2 benchmark.c
+gcc -target x86_64-apple-darwin -c -Wall -std=gnu99 -O2 dgemm-naive.c
+gcc -target x86_64-apple-darwin -o benchmark-naive benchmark.o dgemm-naive.o -L/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl -m64 -I/include
+ld: warning: search path '/lib/intel64' not found
+ld: library 'mkl_intel_lp64' not found
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [benchmark-naive] Error 1
+(base) fabiangobet@Fabians-MBP matmult % source /opt/intel/oneapi/setvars.sh 
+ 
+:: initializing oneAPI environment ...
+   zsh: ZSH_VERSION = 5.9
+   args: Using "$@" for setvars.sh arguments: 
+:: mkl -- latest
+:: tbb -- latest
+:: oneAPI environment initialized ::
+ 
+(base) fabiangobet@Fabians-MBP matmult % make
+(base) fabiangobet@Fabians-MBP matmult % make clean
+rm -f benchmark-naive benchmark-blocked benchmark-blas benchmark.o dgemm-naive.o dgemm-blocked.o dgemm-blas.o  
+(base) fabiangobet@Fabians-MBP matmult % make
+rm -f benchmark-naive benchmark-blocked benchmark-blas benchmark.o dgemm-naive.o dgemm-blocked.o dgemm-blas.o  
+gcc -target x86_64-apple-darwin -c -Wall -std=gnu99 -O2 benchmark.c
+gcc -target x86_64-apple-darwin -c -Wall -std=gnu99 -O2 dgemm-naive.c
+gcc -target x86_64-apple-darwin -o benchmark-naive benchmark.o dgemm-naive.o -L/opt/intel/oneapi/mkl/2023.2.0/lib -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl -m64 -I/opt/intel/oneapi/mkl/2023.2.0/include
+gcc -target x86_64-apple-darwin -c -Wall -std=gnu99 -O2 dgemm-blocked.c
+gcc -target x86_64-apple-darwin -o benchmark-blocked benchmark.o dgemm-blocked.o -L/opt/intel/oneapi/mkl/2023.2.0/lib -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl -m64 -I/opt/intel/oneapi/mkl/2023.2.0/include
+gcc -target x86_64-apple-darwin -c -Wall -std=gnu99 -O2 dgemm-blas.c
+gcc -target x86_64-apple-darwin -o benchmark-blas benchmark.o dgemm-blas.o -L/opt/intel/oneapi/mkl/2023.2.0/lib -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl -m64 -I/opt/intel/oneapi/mkl/2023.2.0/include
+(base) fabiangobet@Fabians-MBP matmult % source /opt/intel/oneapi/setvars.sh 
+ 
+:: WARNING: setvars.sh has already been run. Skipping re-execution.
+   To force a re-execution of setvars.sh, use the '--force' option.
+   Using '--force' can result in excessive use of your environment variables.
+  
+usage: source setvars.sh [--force] [--config=file] [--help] [...]
+  --force        Force setvars.sh to re-run, doing so may overload environment.
+  --config=file  Customize env vars using a setvars.sh configuration file.
+  --help         Display this help message and exit.
+  ...            Additional args are passed to individual env/vars.sh scripts
+                 and should follow this script's arguments.
+  
+  Some POSIX shells do not accept command-line options. In that case, you can pass
+  command-line options via the SETVARS_ARGS environment variable. For example:
+  
+  $ SETVARS_ARGS="ia32 --config=config.txt" ; export SETVARS_ARGS
+  $ . path/to/setvars.sh
+  
+  The SETVARS_ARGS environment variable is cleared on exiting setvars.sh.
+  
+(base) fabiangobet@Fabians-MBP matmult % 
+
+
+----------------------------------------
+
+
+(base) fabiangobet@Fabians-MBP matmult % cd /opt/intel/oneapi/mkl/2023.2.0/lib/
+(base) fabiangobet@Fabians-MBP lib % ls
+cmake                                   libmkl_intel_thread.a
+libmkl_avx.2.dylib                      libmkl_intel_thread.dylib
+libmkl_avx2.2.dylib                     libmkl_lapack95_ilp64.a
+libmkl_avx512.2.dylib                   libmkl_lapack95_lp64.a
+libmkl_blacs_mpich_ilp64.2.dylib        libmkl_mc3.2.dylib
+libmkl_blacs_mpich_ilp64.a              libmkl_rt.2.dylib
+libmkl_blacs_mpich_ilp64.dylib          libmkl_rt.dylib
+libmkl_blacs_mpich_lp64.2.dylib         libmkl_scalapack_ilp64.2.dylib
+libmkl_blacs_mpich_lp64.a               libmkl_scalapack_ilp64.a
+libmkl_blacs_mpich_lp64.dylib           libmkl_scalapack_ilp64.dylib
+libmkl_blas95_ilp64.a                   libmkl_scalapack_lp64.2.dylib
+libmkl_blas95_lp64.a                    libmkl_scalapack_lp64.a
+libmkl_cdft_core.2.dylib                libmkl_scalapack_lp64.dylib
+libmkl_cdft_core.a                      libmkl_sequential.2.dylib
+libmkl_cdft_core.dylib                  libmkl_sequential.a
+libmkl_core.2.dylib                     libmkl_sequential.dylib
+libmkl_core.a                           libmkl_tbb_thread.2.dylib
+libmkl_core.dylib                       libmkl_tbb_thread.a
+libmkl_intel_ilp64.2.dylib              libmkl_tbb_thread.dylib
+libmkl_intel_ilp64.a                    libmkl_vml_avx.2.dylib
+libmkl_intel_ilp64.dylib                libmkl_vml_avx2.2.dylib
+libmkl_intel_lp64.2.dylib               libmkl_vml_avx512.2.dylib
+libmkl_intel_lp64.a                     libmkl_vml_mc3.2.dylib
+libmkl_intel_lp64.dylib                 locale
+libmkl_intel_thread.2.dylib             pkgconfig
+(base) fabiangobet@Fabians-MBP lib % pwd
+/opt/intel/oneapi/mkl/2023.2.0/lib
+(base) fabiangobet@Fabians-MBP lib % cd ..
+(base) fabiangobet@Fabians-MBP 2023.2.0 % cd ..
+(base) fabiangobet@Fabians-MBP mkl % ls
+2023.2.0        latest
+(base) fabiangobet@Fabians-MBP mkl % cd ..
+\%                                                                            
+(base) fabiangobet@Fabians-MBP oneapi % pwd
+/opt/intel/oneapi
+(base) fabiangobet@Fabians-MBP oneapi % ls
+compiler                logs                    support.txt
+conda_channel           mkl                     tbb
+installer               modulefiles-setup.sh
+licensing               setvars.sh
+(base) fabiangobet@Fabians-MBP oneapi % pwd
+/opt/intel/oneapi
+(base) fabiangobet@Fabians-MBP oneapi % 
