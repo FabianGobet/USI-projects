@@ -1,4 +1,4 @@
-set title "NxN matrix-matrix-multiplication on 12-core Apple M2 Pro"
+set title "NxN matrix-matrix-multiplication on Apple M2 Pro"
 set xlabel "Matrix size (N)"
 set ylabel "Performance (GFlop/s)"
 set grid
