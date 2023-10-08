@@ -1,0 +1,117 @@
+Since the access to dist is done by vec[i], where there may be equal values along the array,
+we have a race dondition to which we should attend.
+There are 2 approaches that we may take to increase the performance with parallelization:
+
+1. We can parallelize the for block and perform atomic operations on the operation
+that increments values of dist array.
+
+2. We can paralellize the for loop with with a local array of dist (for each array), and then perform 
+a manual reduction with atomic operations on the global array. openMP doesn't have reduction methods for arrays,
+hence the manual strategy.
+
+On the first case , if the array is very large, the atomic operations may add up to a lot of overhead, hindering performance.
+On the second case, we may ease the overhead of atomic operations inside the for loop, by the exchange of memory usage and 
+potential segmentation fault errors due to stack size.
+
+
+(base) fabiangobet@Fabians-MacBook-Pro hist % ./hist_seq 
+dist[0]=93
+dist[1]=3285
+dist[2]=85350
+dist[3]=1260714
+dist[4]=10871742
+dist[5]=54586161
+dist[6]=159818704
+dist[7]=273378686
+dist[8]=273376192
+dist[9]=159818436
+dist[10]=54574834
+dist[11]=10876069
+dist[12]=1261215
+dist[13]=85045
+dist[14]=3397
+dist[15]=77
+Time: 0.881178 sec
+
+1 thread
+(base) fabiangobet@Fabians-MacBook-Pro hist % ./hist_omp
+dist[0]=93
+dist[1]=3285
+dist[2]=85350
+dist[3]=1260714
+dist[4]=10871742
+dist[5]=54586161
+dist[6]=159818704
+dist[7]=273378686
+dist[8]=273376192
+dist[9]=159818436
+dist[10]=54574834
+dist[11]=10876069
+dist[12]=1261215
+dist[13]=85045
+dist[14]=3397
+dist[15]=77
+Time: 2.29752 sec
+
+8 threads
+(base) fabiangobet@Fabians-MacBook-Pro hist % ./hist_omp              
+dist[0]=93
+dist[1]=3285
+dist[2]=85350
+dist[3]=1260714
+dist[4]=10871742
+dist[5]=54586161
+dist[6]=159818704
+dist[7]=273378686
+dist[8]=273376192
+dist[9]=159818436
+dist[10]=54574834
+dist[11]=10876069
+dist[12]=1261215
+dist[13]=85045
+dist[14]=3397
+dist[15]=77
+Time: 13.3301 sec
+
+
+modified version
+(base) fabiangobet@Fabians-MacBook-Pro hist % export OMP_NUM_THREADS=1
+(base) fabiangobet@Fabians-MacBook-Pro hist % ./hist_omp              
+dist[0]=93
+dist[1]=3285
+dist[2]=85350
+dist[3]=1260714
+dist[4]=10871742
+dist[5]=54586161
+dist[6]=159818704
+dist[7]=273378686
+dist[8]=273376192
+dist[9]=159818436
+dist[10]=54574834
+dist[11]=10876069
+dist[12]=1261215
+dist[13]=85045
+dist[14]=3397
+dist[15]=77
+Time: 0.884913 sec
+
+
+(base) fabiangobet@Fabians-MacBook-Pro hist % export OMP_NUM_THREADS=8
+(base) fabiangobet@Fabians-MacBook-Pro hist % ./hist_omp              
+dist[0]=93
+dist[1]=3285
+dist[2]=85350
+dist[3]=1260714
+dist[4]=10871742
+dist[5]=54586161
+dist[6]=159818704
+dist[7]=273378686
+dist[8]=273376192
+dist[9]=159818436
+dist[10]=54574834
+dist[11]=10876069
+dist[12]=1261215
+dist[13]=85045
+dist[14]=3397
+dist[15]=77
+Time: 0.125224 sec

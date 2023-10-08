@@ -1,0 +1,335 @@
+Numbers of threads:1
+Vector length: 100000
+Serial execution time = 0.011899 sec
+Parallel dot product = 3.33328e+13
+ time using reduction method = 0.012286
+ sec, time using critical method 0.064527 sec
+
+Numbers of threads:2
+Vector length: 100000
+Serial execution time = 0.01168 sec
+Parallel dot product = 3.33328e+13
+ time using reduction method = 0.007557
+ sec, time using critical method 0.093279 sec
+
+Numbers of threads:3
+Vector length: 100000
+Serial execution time = 0.011674 sec
+Parallel dot product = 3.33328e+13
+ time using reduction method = 0.006047
+ sec, time using critical method 0.270189 sec
+
+Numbers of threads:4
+Vector length: 100000
+Serial execution time = 0.011901 sec
+Parallel dot product = 3.33328e+13
+ time using reduction method = 0.006051
+ sec, time using critical method 0.294036 sec
+
+Numbers of threads:5
+Vector length: 100000
+Serial execution time = 0.011643 sec
+Parallel dot product = 3.33328e+13
+ time using reduction method = 0.006085
+ sec, time using critical method 0.209121 sec
+
+Numbers of threads:6
+Vector length: 100000
+Serial execution time = 0.011601 sec
+Parallel dot product = 3.33328e+13
+ time using reduction method = 0.006537
+ sec, time using critical method 0.192918 sec
+
+Numbers of threads:7
+Vector length: 100000
+Serial execution time = 0.012 sec
+Parallel dot product = 3.33328e+13
+ time using reduction method = 0.00651
+ sec, time using critical method 0.185319 sec
+
+Numbers of threads:8
+Vector length: 100000
+Serial execution time = 0.011716 sec
+Parallel dot product = 3.33328e+13
+ time using reduction method = 0.007492
+ sec, time using critical method 0.172539 sec
+
+Numbers of threads:9
+Vector length: 100000
+Serial execution time = 0.011717 sec
+Parallel dot product = 3.33328e+13
+ time using reduction method = 0.008497
+ sec, time using critical method 0.169431 sec
+
+Numbers of threads:10
+Vector length: 100000
+Serial execution time = 0.011854 sec
+Parallel dot product = 3.33328e+13
+ time using reduction method = 0.008171
+ sec, time using critical method 0.165235 sec
+
+Numbers of threads:11
+Vector length: 100000
+Serial execution time = 0.011795 sec
+Parallel dot product = 3.33328e+13
+ time using reduction method = 0.008655
+ sec, time using critical method 0.1665 sec
+
+Numbers of threads:12
+Vector length: 100000
+Serial execution time = 0.011907 sec
+Parallel dot product = 3.33328e+13
+ time using reduction method = 0.009396
+ sec, time using critical method 0.166293 sec
+
+Numbers of threads:1
+Vector length: 1000000
+Serial execution time = 0.115431 sec
+Parallel dot product = 3.33333e+16
+ time using reduction method = 0.115836
+ sec, time using critical method 0.642561 sec
+
+Numbers of threads:2
+Vector length: 1000000
+Serial execution time = 0.115589 sec
+Parallel dot product = 3.33333e+16
+ time using reduction method = 0.061858
+ sec, time using critical method 0.950036 sec
+
+Numbers of threads:3
+Vector length: 1000000
+Serial execution time = 0.115507 sec
+Parallel dot product = 3.33333e+16
+ time using reduction method = 0.043592
+ sec, time using critical method 3.73534 sec
+
+Numbers of threads:4
+Vector length: 1000000
+Serial execution time = 0.115454 sec
+Parallel dot product = 3.33333e+16
+ time using reduction method = 0.034084
+ sec, time using critical method 3.09813 sec
+
+Numbers of threads:5
+Vector length: 1000000
+Serial execution time = 0.115601 sec
+Parallel dot product = 3.33333e+16
+ time using reduction method = 0.027736
+ sec, time using critical method 2.08752 sec
+
+Numbers of threads:6
+Vector length: 1000000
+Serial execution time = 0.115401 sec
+Parallel dot product = 3.33333e+16
+ time using reduction method = 0.024822
+ sec, time using critical method 1.89624 sec
+
+Numbers of threads:7
+Vector length: 1000000
+Serial execution time = 0.116029 sec
+Parallel dot product = 3.33333e+16
+ time using reduction method = 0.022628
+ sec, time using critical method 1.90586 sec
+
+Numbers of threads:8
+Vector length: 1000000
+Serial execution time = 0.115875 sec
+Parallel dot product = 3.33333e+16
+ time using reduction method = 0.022519
+ sec, time using critical method 1.63872 sec
+
+Numbers of threads:9
+Vector length: 1000000
+Serial execution time = 0.115935 sec
+Parallel dot product = 3.33333e+16
+ time using reduction method = 0.026122
+ sec, time using critical method 1.66248 sec
+
+Numbers of threads:10
+Vector length: 1000000
+Serial execution time = 0.115469 sec
+Parallel dot product = 3.33333e+16
+ time using reduction method = 0.024422
+ sec, time using critical method 1.56502 sec
+
+Numbers of threads:11
+Vector length: 1000000
+Serial execution time = 0.117348 sec
+Parallel dot product = 3.33333e+16
+ time using reduction method = 0.024134
+ sec, time using critical method 1.54862 sec
+
+Numbers of threads:12
+Vector length: 1000000
+Serial execution time = 0.11602 sec
+Parallel dot product = 3.33333e+16
+ time using reduction method = 0.025241
+ sec, time using critical method 1.54676 sec
+
+Numbers of threads:1
+Vector length: 10000000
+Serial execution time = 1.14555 sec
+Parallel dot product = 3.33333e+19
+ time using reduction method = 1.14476
+ sec, time using critical method 6.41895 sec
+
+Numbers of threads:2
+Vector length: 10000000
+Serial execution time = 1.14506 sec
+Parallel dot product = 3.33333e+19
+ time using reduction method = 0.576978
+ sec, time using critical method 10.4218 sec
+
+Numbers of threads:3
+Vector length: 10000000
+Serial execution time = 1.15226 sec
+Parallel dot product = 3.33333e+19
+ time using reduction method = 0.402695
+ sec, time using critical method 32.5162 sec
+
+Numbers of threads:4
+Vector length: 10000000
+Serial execution time = 1.15321 sec
+Parallel dot product = 3.33333e+19
+ time using reduction method = 0.306013
+ sec, time using critical method 19.8476 sec
+
+Numbers of threads:5
+Vector length: 10000000
+Serial execution time = 1.15228 sec
+Parallel dot product = 3.33333e+19
+ time using reduction method = 0.251357
+ sec, time using critical method 23.3951 sec
+
+Numbers of threads:6
+Vector length: 10000000
+Serial execution time = 1.152 sec
+Parallel dot product = 3.33333e+19
+ time using reduction method = 0.212525
+ sec, time using critical method 21.0286 sec
+
+Numbers of threads:7
+Vector length: 10000000
+Serial execution time = 1.14721 sec
+Parallel dot product = 3.33333e+19
+ time using reduction method = 0.185778
+ sec, time using critical method 16.5079 sec
+
+Numbers of threads:8
+Vector length: 10000000
+Serial execution time = 1.14871 sec
+Parallel dot product = 3.33333e+19
+ time using reduction method = 0.163707
+ sec, time using critical method 15.4274 sec
+
+Numbers of threads:9
+Vector length: 10000000
+Serial execution time = 1.15277 sec
+Parallel dot product = 3.33333e+19
+ time using reduction method = 0.184747
+ sec, time using critical method 14.8541 sec
+
+Numbers of threads:10
+Vector length: 10000000
+Serial execution time = 1.15246 sec
+Parallel dot product = 3.33333e+19
+ time using reduction method = 0.17217
+ sec, time using critical method 14.6737 sec
+
+Numbers of threads:11
+Vector length: 10000000
+Serial execution time = 1.15344 sec
+Parallel dot product = 3.33333e+19
+ time using reduction method = 0.172732
+ sec, time using critical method 14.6904 sec
+
+Numbers of threads:12
+Vector length: 10000000
+Serial execution time = 1.15249 sec
+Parallel dot product = 3.33333e+19
+ time using reduction method = 0.182938
+ sec, time using critical method 14.602 sec
+
+Numbers of threads:1
+Vector length: 100000000
+Serial execution time = 11.4829 sec
+Parallel dot product = 3.33333e+22
+ time using reduction method = 11.4755
+ sec, time using critical method 65.3952 sec
+
+Numbers of threads:2
+Vector length: 100000000
+Serial execution time = 11.4671 sec
+Parallel dot product = 3.33333e+22
+ time using reduction method = 5.7762
+ sec, time using critical method 104.83 sec
+
+Numbers of threads:3
+Vector length: 100000000
+Serial execution time = 11.4562 sec
+Parallel dot product = 3.33333e+22
+ time using reduction method = 3.98972
+ sec, time using critical method 369.534 sec
+
+Numbers of threads:4
+Vector length: 100000000
+Serial execution time = 11.495 sec
+Parallel dot product = 3.33333e+22
+ time using reduction method = 3.00312
+ sec, time using critical method 216.736 sec
+
+Numbers of threads:5
+Vector length: 100000000
+Serial execution time = 11.497 sec
+Parallel dot product = 3.33333e+22
+ time using reduction method = 2.47402
+ sec, time using critical method 235.186 sec
+
+Numbers of threads:6
+Vector length: 100000000
+Serial execution time = 11.4998 sec
+Parallel dot product = 3.33333e+22
+ time using reduction method = 2.06622
+ sec, time using critical method 246.971 sec
+
+Numbers of threads:7
+Vector length: 100000000
+Serial execution time = 11.528 sec
+Parallel dot product = 3.33333e+22
+ time using reduction method = 1.77651
+ sec, time using critical method 147.877 sec
+
+Numbers of threads:8
+Vector length: 100000000
+Serial execution time = 11.7632 sec
+Parallel dot product = 3.33333e+22
+ time using reduction method = 1.62064
+ sec, time using critical method 140.81 sec
+
+Numbers of threads:9
+Vector length: 100000000
+Serial execution time = 11.7101 sec
+Parallel dot product = 3.33333e+22
+ time using reduction method = 1.66801
+ sec, time using critical method 130.409 sec
+
+Numbers of threads:10
+Vector length: 100000000
+Serial execution time = 11.605 sec
+Parallel dot product = 3.33333e+22
+ time using reduction method = 1.6347
+ sec, time using critical method 135.978 sec
+
+Numbers of threads:11
+Vector length: 100000000
+Serial execution time = 11.5252 sec
+Parallel dot product = 3.33333e+22
+ time using reduction method = 1.66506
+ sec, time using critical method 143.011 sec
+
+Numbers of threads:12
+Vector length: 100000000
+Serial execution time = 11.5417 sec
+Parallel dot product = 3.33333e+22
+ time using reduction method = 1.68652
+ sec, time using critical method 158.032 sec

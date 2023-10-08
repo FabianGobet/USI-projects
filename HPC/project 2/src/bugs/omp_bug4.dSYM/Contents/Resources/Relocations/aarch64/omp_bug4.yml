@@ -1,0 +1,8 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     omp_bug4
+relocations:
+  - { offsetInCU: 0x99, offset: 0x99, size: 0x8, addend: 0x0, symName: _main._omp_fn.0, symObjAddr: 0x0, symBinAddr: 0x100003D60, symSize: 0x114 }
+  - { offsetInCU: 0x97, offset: 0x97, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x170, symBinAddr: 0x100003E80, symSize: 0x30 }
+  - { offsetInCU: 0xDC, offset: 0xDC, size: 0x8, addend: 0x0, symName: _main._omp_fn.0, symObjAddr: 0x0, symBinAddr: 0x100003D60, symSize: 0x114 }
+...

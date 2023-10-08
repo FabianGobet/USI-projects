@@ -1,0 +1,68 @@
+-> Had to change makefile
+CC=gcc-13
+CFLAGS = -g -O3 -fopenmp -ld_classic
+
+$(CC) $(CFLAGS) $< -o $@
+
+1.
+
+#pragma omp parallel for shared(a, b, c, chunk) private(i, tid)                \
+    schedule(static, chunk)
+  {
+    tid = omp_get_thread_num();
+    for (i = 0; i < N; i++) {
+      c[i] = a[i] + b[i];
+      printf("tid= %d i= %d c[i]= %f\n", tid, i, c[i]);
+    }
+  } /* end of parallel for construct */
+}
+
+After the pragma statement with the 'paralel for' for directive should come imidiatly the for loop. 
+Also the tid statement should be inside the loop.
+
+
+2. Assuming that the objective at the end is for each thread to print the amount it could sum,
+we must declare tid and total and private. the nthreads can remain by default as shared since that value
+will only be acessed and changed by a single thread. We could also put it in private with the very small 
+disadvantage of memory overhead.
+
+3. Not sure what wrong because i don't know whats intended. 
+The barrier inside the function might be dangerous
+
+4. The stack size is set to 8176Kb by default. for a 1048 by 1048 array of doubles
+we need 8580.5 Kb per thread, which exceeds the stack size, thus giving
+the segmentation fault error. If we we make the calculus for which N such that
+8*N**2 <= 8176 we get that N <= 1022. So if we try for N=1022 and one thread
+the program runs, whereas for N=1023 it gives the prior error.
+So we can then infer that for an array of this size, declared as private in the
+pragma statement directives, run by 8 threads, we greatly exceed the stack size
+because each thread will have a copy of that array.
+
+
+(base) fabiangobet@Fabians-MacBook-Pro bugs % export OMP_NUM_THREADS=1
+
+N = 1048
+(base) fabiangobet@Fabians-MacBook-Pro bugs % ./omp_bug4              
+zsh: segmentation fault  ./omp_bug4
+
+N = 1022
+(base) fabiangobet@Fabians-MacBook-Pro bugs % ./omp_bug4
+Number of threads = 1
+Thread 0 starting...
+Thread 0 done. Last element= 2042.000000
+
+N=1023
+(base) fabiangobet@Fabians-MacBook-Pro bugs % ./omp_bug4
+zsh: segmentation fault  ./omp_bug4
+
+5. We have a omp sections nowait directive which indicates
+that the threads should proceed to run sections without the prior
+one having been completed. If we run at least 2 threads, it mighht
+happen that the first goes into the first section and locks
+lock A, and the second goes to the section section and locks lock B.
+They execute some code, and theen the first one tries to lock lock b
+and the second tries to lock lock A. Since both this locks are already
+locked, the threads stay asleep until signalled by the lock to proceed
+once that lock has been unlocked. So this means that both threads
+end up in a dead lock situation, thus the execution of the program stays
+put and never ends.

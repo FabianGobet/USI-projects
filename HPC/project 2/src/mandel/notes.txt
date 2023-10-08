@@ -1,0 +1,37 @@
+-> Had to change makefile
+gcc -o $@ -I. -O3 $^ -lpng
+gcc -o $@ -I/opt/homebrew/include/libpng16 -O3 $^ -L/opt/homebrew/lib -lpng
+
+-> Results
+
+Total time:                 336847 millisconds
+Image size:                 4096 x 4096 = 16777216 Pixels
+Total number of iterations: 113614144161
+Avg. time per pixel:        20.0776 microseconds
+Avg. time per iteration:    0.00296483 microseconds
+Iterations/second:          3.37287e+08
+MFlop/s:                    2698.3
+
+Total time:                 83632.1 millisconds
+Image size:                 2048 x 2048 = 4194304 Pixels
+Total number of iterations: 28404035419
+Avg. time per pixel:        19.9395 microseconds
+Avg. time per iteration:    0.00294437 microseconds
+Iterations/second:          3.39631e+08
+MFlop/s:                    2717.05
+
+Total time:                 21014.4 millisconds
+Image size:                 1024 x 1024 = 1048576 Pixels
+Total number of iterations: 7103841491
+Avg. time per pixel:        20.0409 microseconds
+Avg. time per iteration:    0.00295817 microseconds
+Iterations/second:          3.38046e+08
+MFlop/s:                    2704.37
+
+Total time:                 5256.54 millisconds
+Image size:                 512 x 512 = 262144 Pixels
+Total number of iterations: 1775318976
+Avg. time per pixel:        20.0521 microseconds
+Avg. time per iteration:    0.0029609 microseconds
+Iterations/second:          3.37735e+08
+MFlop/s:                    2701.88

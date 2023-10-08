@@ -1,0 +1,40 @@
+-> Change makefile
+gcc -o $@ -I. -O3 $^ -lpng
+gcc-13 -fopenmp -ld_classic -o $@ -I/opt/homebrew/include/libpng16 -O3 $^ -L/opt/homebrew/lib -lpng
+
+-> Best threads number was 8
+export OMP_NUM_THREADS=8
+
+-> Results:
+
+Total time:                 113944 millisconds
+Image size:                 4096 x 4096 = 16777216 Pixels
+Total number of iterations: 113642427699
+Avg. time per pixel:        6.79156 microseconds
+Avg. time per iteration:    0.00100265 microseconds
+Iterations/second:          9.97357e+08
+MFlop/s:                    7978.86
+
+Total time:                 28534.2 millisconds
+Image size:                 2048 x 2048 = 4194304 Pixels
+Total number of iterations: 28417858143
+Avg. time per pixel:        6.80309 microseconds
+Avg. time per iteration:    0.00100409 microseconds
+Iterations/second:          9.95922e+08
+MFlop/s:                    7967.38
+
+Total time:                 7133.99 millisconds
+Image size:                 1024 x 1024 = 1048576 Pixels
+Total number of iterations: 7110758858
+Avg. time per pixel:        6.80351 microseconds
+Avg. time per iteration:    0.00100327 microseconds
+Iterations/second:          9.96743e+08
+MFlop/s:                    7973.94
+
+Total time:                 1804.06 millisconds
+Image size:                 512 x 512 = 262144 Pixels
+Total number of iterations: 1778710421
+Avg. time per pixel:        6.88193 microseconds
+Avg. time per iteration:    0.00101425 microseconds
+Iterations/second:          9.85951e+08
+MFlop/s:                    7887.61
