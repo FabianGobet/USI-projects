@@ -1,0 +1,212 @@
+(base) fabiangobet@Fabians-MacBook-Pro loop-dependencies % ./recur_seq
+Sequential RunTime :  4.222464 seconds
+Final Result Sn    :  485165097.62511122 
+Result ||opt||^2_2 :  5884629305179575.000000
+
+(base) fabiangobet@Fabians-MacBook-Pro loop-dependencies % ./recur_omp
+Parallel RunTime   :  2.767497 seconds
+Final Result Sn    :  485165092.76677924 
+Result ||opt||^2_2 :  5884629305023268.000000
+
+| 485165097.62511122 - 485165092.76677924 | = 4.858332
+| 5884629305179575.000000 - 5884629305023268.000000 | = 156307
+
+1 Threads, 10 division factor:
+Parallel RunTime   :  3.974430 seconds
+Final Result Sn    :  485165092.77076542 
+
+1 Threads, 100 division factor:
+Parallel RunTime   :  2.988011 seconds
+Final Result Sn    :  485165092.76677924 
+
+1 Threads, 1000 division factor:
+Parallel RunTime   :  3.087585 seconds
+Final Result Sn    :  485165092.780779 
+
+1 Threads, 10000 division factor:
+Parallel RunTime   :  3.413681 seconds
+Final Result Sn    :  485165092.75930613 
+
+1 Threads, 100000 division factor:
+Parallel RunTime   :  3.454532 seconds
+Final Result Sn    :  485165092.74052197 
+
+2 Threads, 10 division factor:
+Parallel RunTime   :  3.303520 seconds
+Final Result Sn    :  485165092.77076542 
+
+2 Threads, 100 division factor:
+Parallel RunTime   :  2.785839 seconds
+Final Result Sn    :  485165092.76677924 
+
+2 Threads, 1000 division factor:
+Parallel RunTime   :  2.614230 seconds
+Final Result Sn    :  485165092.780779 
+
+2 Threads, 10000 division factor:
+Parallel RunTime   :  2.932606 seconds
+Final Result Sn    :  485165092.75930613 
+
+2 Threads, 100000 division factor:
+Parallel RunTime   :  3.215592 seconds
+Final Result Sn    :  485165092.74052197 
+
+3 Threads, 10 division factor:
+Parallel RunTime   :  3.131254 seconds
+Final Result Sn    :  485165092.77076542 
+
+3 Threads, 100 division factor:
+Parallel RunTime   :  2.640935 seconds
+Final Result Sn    :  485165092.76677924 
+
+3 Threads, 1000 division factor:
+Parallel RunTime   :  2.462706 seconds
+Final Result Sn    :  485165092.780779 
+
+3 Threads, 10000 division factor:
+Parallel RunTime   :  2.558268 seconds
+Final Result Sn    :  485165092.75930613 
+
+3 Threads, 100000 division factor:
+Parallel RunTime   :  3.405227 seconds
+Final Result Sn    :  485165092.74052197 
+
+4 Threads, 10 division factor:
+Parallel RunTime   :  3.026925 seconds
+Final Result Sn    :  485165092.77076542 
+
+4 Threads, 100 division factor:
+Parallel RunTime   :  2.607036 seconds
+Final Result Sn    :  485165092.76677924 
+
+4 Threads, 1000 division factor:
+Parallel RunTime   :  2.448964 seconds
+Final Result Sn    :  485165092.780779 
+
+4 Threads, 10000 division factor:
+Parallel RunTime   :  2.464168 seconds
+Final Result Sn    :  485165092.75930613 
+
+4 Threads, 100000 division factor:
+Parallel RunTime   :  3.775031 seconds
+Final Result Sn    :  485165092.74052197 
+
+5 Threads, 10 division factor:
+Parallel RunTime   :  3.034897 seconds
+Final Result Sn    :  485165092.77076542 
+
+5 Threads, 100 division factor:
+Parallel RunTime   :  2.426189 seconds
+Final Result Sn    :  485165092.76677924 
+
+5 Threads, 1000 division factor:
+Parallel RunTime   :  2.470021 seconds
+Final Result Sn    :  485165092.780779 
+
+5 Threads, 10000 division factor:
+Parallel RunTime   :  2.549450 seconds
+Final Result Sn    :  485165092.75930613 
+
+5 Threads, 100000 division factor:
+Parallel RunTime   :  3.704696 seconds
+Final Result Sn    :  485165092.74052197 
+
+6 Threads, 10 division factor:
+Parallel RunTime   :  2.901893 seconds
+Final Result Sn    :  485165092.77076542 
+
+6 Threads, 100 division factor:
+Parallel RunTime   :  2.482427 seconds
+Final Result Sn    :  485165092.76677924 
+
+6 Threads, 1000 division factor:
+Parallel RunTime   :  2.553568 seconds
+Final Result Sn    :  485165092.780779 
+
+6 Threads, 10000 division factor:
+Parallel RunTime   :  2.748219 seconds
+Final Result Sn    :  485165092.75930613 
+
+6 Threads, 100000 division factor:
+Parallel RunTime   :  4.087580 seconds
+Final Result Sn    :  485165092.74052197 
+
+7 Threads, 10 division factor:
+Parallel RunTime   :  2.919604 seconds
+Final Result Sn    :  485165092.77076542 
+
+7 Threads, 100 division factor:
+Parallel RunTime   :  2.353466 seconds
+Final Result Sn    :  485165092.76677924 
+
+7 Threads, 1000 division factor:
+Parallel RunTime   :  2.622207 seconds
+Final Result Sn    :  485165092.780779 
+
+7 Threads, 10000 division factor:
+Parallel RunTime   :  2.733264 seconds
+Final Result Sn    :  485165092.75930613 
+
+7 Threads, 100000 division factor:
+Parallel RunTime   :  4.092667 seconds
+Final Result Sn    :  485165092.74052197 
+
+8 Threads, 10 division factor:
+Parallel RunTime   :  2.818406 seconds
+Final Result Sn    :  485165092.77076542 
+
+8 Threads, 100 division factor:
+Parallel RunTime   :  2.414675 seconds
+Final Result Sn    :  485165092.76677924 
+
+8 Threads, 1000 division factor:
+Parallel RunTime   :  2.690447 seconds
+Final Result Sn    :  485165092.780779 
+
+8 Threads, 10000 division factor:
+Parallel RunTime   :  2.940233 seconds
+Final Result Sn    :  485165092.75930613 
+
+8 Threads, 100000 division factor:
+Parallel RunTime   :  4.254213 seconds
+Final Result Sn    :  485165092.74052197 
+
+9 Threads, 10 division factor:
+Parallel RunTime   :  3.392950 seconds
+Final Result Sn    :  485165092.77076542 
+
+9 Threads, 100 division factor:
+Parallel RunTime   :  2.502451 seconds
+Final Result Sn    :  485165092.76677924 
+
+9 Threads, 1000 division factor:
+Parallel RunTime   :  2.800120 seconds
+Final Result Sn    :  485165092.780779 
+
+9 Threads, 10000 division factor:
+Parallel RunTime   :  3.074194 seconds
+Final Result Sn    :  485165092.75930613 
+
+9 Threads, 100000 division factor:
+Parallel RunTime   :  4.677608 seconds
+Final Result Sn    :  485165092.74052197 
+
+10 Threads, 10 division factor:
+Parallel RunTime   :  2.885671 seconds
+Final Result Sn    :  485165092.77076542 
+
+10 Threads, 100 division factor:
+Parallel RunTime   :  2.478327 seconds
+Final Result Sn    :  485165092.76677924 
+
+10 Threads, 1000 division factor:
+Parallel RunTime   :  2.887129 seconds
+Final Result Sn    :  485165092.780779 
+
+10 Threads, 10000 division factor:
+Parallel RunTime   :  2.716080 seconds
+Final Result Sn    :  485165092.75930613 
+
+10 Threads, 100000 division factor:
+Parallel RunTime   :  4.710007 seconds
+Final Result Sn    :  485165092.74052197
