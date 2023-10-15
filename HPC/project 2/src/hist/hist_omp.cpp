@@ -55,8 +55,6 @@ int main() {
   // TODO Parallelize the histogram computation
   #pragma omp parallel 
   {
-    int nthreads;
-    int thread_num = omp_get_thread_num();
     long local_dist[BINS] = {0};
 
   #pragma omp for

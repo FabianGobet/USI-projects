@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
     Sn *= up;
     up2 *= up;
   }
-
+  
   long long int i, j;
 
   for(i=blocksize; i<N+1; i+=blocksize){
@@ -46,12 +46,21 @@ int main(int argc, char *argv[]) {
     for(j=i; j<(i+blocksize>N+1 ? N+1 : i+blocksize); j++)
       opt[j] = opt[j-blocksize]*up2;
   }
-
   Sn = opt[N];
+  
+
+  /*
+  #pragma omp parallel for num_threads(tnum) shared(blocksize,N,opt,up2)
+  for(int i = 0; i<tnum; i++)
+    for(int j = mini+i; j <=N; j+=mini){
+      opt[j] = opt[j-mini]*up2;
+    }
+  Sn = opt[N];
+  */
 
   //printf("%i Threads, %i division factor:\n", tnum, div);
   printf("Parallel RunTime   :  %f seconds\n", wall_time() - time_start);
-  printf("Final Result Sn    :  %.17g \n\n", Sn);
+  printf("Final Result Sn    :  %.17g \n", Sn);
 
   
   double temp = 0.0;

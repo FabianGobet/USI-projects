@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 
   double temp = 0.0;
   for (n = 0; n <= N; ++n) {
-    //printf("%i ", opt[n]);
+    //printf("%Lf ", opt[n]);
     temp += opt[n] * opt[n];
   }
   
