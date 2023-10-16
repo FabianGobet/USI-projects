@@ -31,7 +31,7 @@ def plot_polynomial(coeffs, z_range, color='b'):
 
     z_min, z_max = z_range
     sample_size = (z_max-z_min)*10
-    z = np.linspace(z_min, z_max, num=sample_size)
+    z = np.linspace(z_min, z_max, num=sample_size).astype(np.float32)
     _,y = p(coeffs,z)
 
     plt.axhline(0, color='black',linewidth=1)
@@ -46,17 +46,17 @@ def plot_polynomial(coeffs, z_range, color='b'):
 
 def p(coeffs,z):
 
-    X = np.vander(z, N=len(coeffs), increasing=True)
-    return X, X@coeffs
+    X = np.vander(z, N=len(coeffs), increasing=True).astype(np.float32)
+    return X, (X@coeffs).astype(np.float32).reshape(-1,1)
 
 # *** Question 2 **
 def create_dataset(coeffs, z_range, sample_size, sigma, seed=42):
 
     random_state = np.random.RandomState(seed)
     z_min, z_max = z_range
-    z = random_state.uniform(z_min, z_max, (sample_size))
+    z = random_state.uniform(z_min, z_max, (sample_size)).astype(np.float32)
     x,y = p(coeffs,z)
-    y += random_state.normal(0.0, sigma, y.shape)
+    y += random_state.normal(0.0, sigma, y.shape).astype(np.float32)
     return x,y
 
 # *** Question 4 **
@@ -83,31 +83,30 @@ if __name__ == "__main__":
     
     model = nn.Linear(len(coeffs),1,bias=False)
     loss_fn = nn.MSELoss()
-    #learning_rate = 0.00016472
-    learning_rate = 0.1
-    optimizer = optim.SGD(model.parameters(), lr=learning_rate)
+    learning_rate = 0.8
+    optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
     #print("Initial w:", model.weight)
     #print("Value in x = {1}:", model(torch.ones(len(coeffs))))
 
-    x_train = torch.tensor(x_train, dtype=torch.float32).reshape(x_train.shape)
-    x_test = torch.tensor(x_test, dtype=torch.float32).reshape(x_test.shape)
-    y_train = torch.tensor(y_train, dtype=torch.float32).reshape(y_train.shape)
-    y_test = torch.tensor(y_test, dtype=torch.float32).reshape(y_test.shape)
+    x_train = torch.tensor(x_train, dtype=torch.float32)
+    x_test = torch.tensor(x_test, dtype=torch.float32)
+    y_train = torch.tensor(y_train, dtype=torch.float32)
+    y_test = torch.tensor(y_test, dtype=torch.float32)
+
+    #print(x_train.shape,"\n",x_test.shape,"\n",y_train.shape,"\n",y_test.shape)
 
     model.to(DEVICE)
-    #x_train = x_train.to(DEVICE)
+    x_train = x_train.to(DEVICE)
     x_test = x_test.to(DEVICE)
     y_train = y_train.to(DEVICE)
     y_test = y_test.to(DEVICE)
+    print(optimizer)
 
-    mean = torch.mean(x_train, dim=0)
-    std = torch.std(x_train, dim=0)
-    x_train = (x_train - mean) / std
-    x_train = x_train.to(DEVICE)
-
+    """
     start = time.time()
-    for step in range(1000):
+    num_epochs = 1000
+    for epoch in range(num_epochs):
         model.train()
         optimizer.zero_grad()
 
@@ -120,15 +119,16 @@ if __name__ == "__main__":
         with torch.no_grad():
             y_hat_test = model(x_test)
             loss_test = loss_fn(y_hat_test,y_test)
-            if step % 10 == 0:
+            if (epoch+1) % 10 == 0:
                 l = loss_test.item()
-                print("Step:", step, "- Loss eval:", l)
+                print("Epoch:", epoch+1, "- Loss eval:", l)
+                #print(model.weight,"\n")
                 if l < 0.5:
                     print("Training done, with an evaluation loss of {} in time {}".format( loss_test.item(), time.time() - start))
                     break
 
-    #print("Final w:", model.weight)
-
+    print("Final w:", model.weight)
+    """
     # *** Question 6 **
 
     # *** Question 7 **
