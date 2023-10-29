@@ -1,0 +1,66 @@
+(base) fabiangobet@Fabians-MBP parallel % ./main 128 100 0.005    
+========================================================================
+                      Welcome to mini-stencil!
+version   :: C++ OpenMP
+threads   :: 1
+mesh      :: 128 * 128 dx = 0.00787402
+time      :: 100 time steps from 0 .. 0.005
+iteration :: CG 200, Newton 50, tolerance 1e-06
+========================================================================
+--------------------------------------------------------------------------------
+simulation took 0.134541 seconds
+1513 conjugate gradient iterations, at rate of 11245.6 iters/second
+300 newton iterations
+--------------------------------------------------------------------------------
+Goodbye!
+
+
+(base) fabiangobet@Fabians-MBP parallel % ./main 256 100 0.005    
+========================================================================
+                      Welcome to mini-stencil!
+version   :: C++ OpenMP
+threads   :: 3
+mesh      :: 256 * 256 dx = 0.00392157
+time      :: 100 time steps from 0 .. 0.005
+iteration :: CG 200, Newton 50, tolerance 1e-06
+========================================================================
+--------------------------------------------------------------------------------
+simulation took 0.731643 seconds
+2786 conjugate gradient iterations, at rate of 3807.87 iters/second
+300 newton iterations
+--------------------------------------------------------------------------------
+Goodbye!
+
+
+(base) fabiangobet@Fabians-MBP parallel % ./main 512 100 0.005    
+========================================================================
+                      Welcome to mini-stencil!
+version   :: C++ OpenMP
+threads   :: 4
+mesh      :: 512 * 512 dx = 0.00195695
+time      :: 100 time steps from 0 .. 0.005
+iteration :: CG 200, Newton 50, tolerance 1e-06
+========================================================================
+--------------------------------------------------------------------------------
+simulation took 3.38686 seconds
+5358 conjugate gradient iterations, at rate of 1582 iters/second
+300 newton iterations
+--------------------------------------------------------------------------------
+Goodbye!
+
+
+(base) fabiangobet@Fabians-MBP parallel % ./main 1024 100 0.005   
+========================================================================
+                      Welcome to mini-stencil!
+version   :: C++ OpenMP
+threads   :: 8
+mesh      :: 1024 * 1024 dx = 0.000977517
+time      :: 100 time steps from 0 .. 0.005
+iteration :: CG 200, Newton 50, tolerance 1e-06
+========================================================================
+--------------------------------------------------------------------------------
+simulation took 21.425 seconds
+10440 conjugate gradient iterations, at rate of 445.678 iters/second
+301 newton iterations
+--------------------------------------------------------------------------------
+Goodbye!

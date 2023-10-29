@@ -1,0 +1,68 @@
+LINEAR ALGEBRA OPTIMIZATION
+
+(base) fabiangobet@Fabians-MBP serial % ./main 128 100 0.005
+========================================================================
+                      Welcome to mini-stencil!
+version   :: Serial C++
+mesh      :: 128 * 128 dx = 0.00787402
+time      :: 100 time steps from 0 .. 0.005
+iteration :: CG 200, Newton 50, tolerance 1e-06
+========================================================================
+--------------------------------------------------------------------------------
+simulation took 0.132004 seconds
+1515 conjugate gradient iterations, at rate of 11476.9 iters/second
+300 newton iterations
+--------------------------------------------------------------------------------
+Goodbye!
+
+
+(base) fabiangobet@Fabians-MBP serial % ./main 256 100 0.005
+========================================================================
+                      Welcome to mini-stencil!
+version   :: Serial C++
+mesh      :: 256 * 256 dx = 0.00392157
+time      :: 100 time steps from 0 .. 0.005
+iteration :: CG 200, Newton 50, tolerance 1e-06
+========================================================================
+--------------------------------------------------------------------------------
+simulation took 0.80256 seconds
+2784 conjugate gradient iterations, at rate of 3468.9 iters/second
+300 newton iterations
+--------------------------------------------------------------------------------
+Goodbye!
+
+
+(base) fabiangobet@Fabians-MBP serial % ./main 512 100 0.005 
+========================================================================
+                      Welcome to mini-stencil!
+version   :: Serial C++
+mesh      :: 512 * 512 dx = 0.00195695
+time      :: 100 time steps from 0 .. 0.005
+iteration :: CG 200, Newton 50, tolerance 1e-06
+========================================================================
+--------------------------------------------------------------------------------
+simulation took 5.96293 seconds
+5366 conjugate gradient iterations, at rate of 899.893 iters/second
+300 newton iterations
+--------------------------------------------------------------------------------
+Goodbye!
+
+
+(base) fabiangobet@Fabians-MBP serial % ./main 1024 100 0.005
+========================================================================
+                      Welcome to mini-stencil!
+version   :: Serial C++
+mesh      :: 1024 * 1024 dx = 0.000977517
+time      :: 100 time steps from 0 .. 0.005
+iteration :: CG 200, Newton 50, tolerance 1e-06
+========================================================================
+--------------------------------------------------------------------------------
+simulation took 47.2669 seconds
+10442 conjugate gradient iterations, at rate of 220.915 iters/second
+301 newton iterations
+--------------------------------------------------------------------------------
+Goodbye!
+
+
+DIFFUSION OPTIMIZATION
+
