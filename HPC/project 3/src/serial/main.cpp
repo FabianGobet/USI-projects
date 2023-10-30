@@ -17,12 +17,13 @@
 #include <cstring>
 
 #include <omp.h>
-#include <stdio.h>
+#include <filesystem>
 
 #include "data.h"
 #include "linalg.h"
 #include "operators.h"
 #include "stats.h"
+
 
 using namespace data;
 using namespace linalg;
@@ -222,6 +223,26 @@ int main(int argc, char* argv[])
         FILE* output = fopen("output.bin", "w");
         fwrite(y_new.data(), sizeof(double), nx * nx, output);
         fclose(output);
+    }
+
+    std::string filePath = "mydata.csv";
+
+    if (!std::filesystem::exists(filePath)) {
+        std::ofstream outdata(filePath);
+        if (outdata.is_open()) {
+            outdata << "size,threads,time,iters_cg,iters_second,newton_iter" << std::endl;
+            outdata.close();
+        } else {
+            std::cerr << "Failed to open the file for writing." << std::endl;
+        }
+    } else {
+        std::ofstream outdata(filePath, std::ios::app); // Open the file for appending
+        if (outdata.is_open()) {
+            outdata << options.nx << ",serial," << timespent << "," << int(iters_cg) << "," << float(iters_cg) / timespent << "," << iters_newton << std::endl;
+            outdata.close();
+        } else {
+            std::cerr << "Failed to open the file for appending data." << std::endl;
+        }
     }
 
     std::ofstream fid("output.bov");

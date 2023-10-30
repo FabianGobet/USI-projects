@@ -66,3 +66,20 @@ Goodbye!
 
 DIFFUSION OPTIMIZATION
 
+base) fabiangobet@Fabians-MacBook-Pro parallel % ./main 128 100 0.005    
+========================================================================
+                      Welcome to mini-stencil!
+version   :: C++ OpenMP
+threads   :: 1
+mesh      :: 128 * 128 dx = 0.00787402
+time      :: 100 time steps from 0 .. 0.005
+iteration :: CG 200, Newton 50, tolerance 1e-06
+========================================================================
+--------------------------------------------------------------------------------
+simulation took 0.135211 seconds
+1513 conjugate gradient iterations, at rate of 11189.9 iters/second
+300 newton iterations
+--------------------------------------------------------------------------------
+Goodbye!
+
+

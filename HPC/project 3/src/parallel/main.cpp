@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <filesystem>
 
 #include <cmath>
 #include <cstdlib>
@@ -223,10 +224,79 @@ int main(int argc, char* argv[])
 
     // binary data
     {
-        FILE* output = fopen("output.bin", "w");
+        /*
+         if (std::filesystem::exists("output.bin")){
+
+            FILE* output = fopen("output.bin", "r");
+            double* existingData = (double*)malloc(sizeof(double)*nx);
+            int current_idx=0;
+            bool dataIsDifferent = false;
+
+            do {
+                size_t num_ele = fread(existingData,sizeof(double),nx,output);
+                for(int i=current_idx; i < num_ele; i++){
+                    if (y_new.data()[i] != existingData[i%nx]) {
+                        uint64_t binaryRep_y;
+                        uint64_t binaryRep_e;
+                        std::memcpy(&binaryRep_y, &y_new.data()[i], sizeof(y_new.data()[i]));
+                        std::memcpy(&binaryRep_e, &existingData[i%nx], sizeof(existingData[i%nx]));
+                        for (int j = 63; j >= 0; j--) {
+                            std::cout << ((binaryRep_y >> j) & 1);
+                            if (j % 8 == 0) {
+                                std::cout << ' ';
+                            }
+                        }
+                        std::cout << std::endl;
+                        for (int j = 63; j >= 0; j--) {
+                            std::cout << ((binaryRep_e >> j) & 1);
+                            if (j % 8 == 0) {
+                                std::cout << ' ';
+                            }
+                        }
+                        std::cout << std::endl;
+                        //std::cout << i << ", " << y_new.data()[i] << ", " << existingData[i%nx] << std::endl;
+                        dataIsDifferent = true;
+                        break;
+                    }
+                }
+                if(dataIsDifferent)
+                    break;
+                current_idx = num_ele;
+                
+            } while(!feof(output));
+
+            fclose(output);
+            free(existingData);
+        }
+        */
+        
+        FILE* output = fopen("output.bin", "w");    
         fwrite(y_new.data(), sizeof(double), nx * nx, output);
         fclose(output);
     }
+
+    /*
+    std::string filePath = "mydata.csv";
+
+    if (!std::filesystem::exists(filePath)) {
+        std::ofstream outdata(filePath);
+        if (outdata.is_open()) {
+            outdata << "size,threads,time,iters_cg,iters_second,newton_iter" << std::endl;
+            outdata << options.nx << "," << numt << "," << timespent << "," << int(iters_cg) << "," << float(iters_cg) / timespent << "," << iters_newton << std::endl;
+            outdata.close();
+        } else {
+            std::cerr << "Failed to open the file for writing." << std::endl;
+        }
+    } else {
+        std::ofstream outdata(filePath, std::ios::app); 
+        if (outdata.is_open()) {
+            outdata << options.nx << "," << numt << "," << timespent << "," << int(iters_cg) << "," << float(iters_cg) / timespent << "," << iters_newton << std::endl;
+            outdata.close();
+        } else {
+            std::cerr << "Failed to open the file for appending data." << std::endl;
+        }
+    }
+    */
 
     std::ofstream fid("output.bov");
     fid << "TIME: 0.0" << std::endl;

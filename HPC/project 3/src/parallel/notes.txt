@@ -64,3 +64,16 @@ simulation took 21.425 seconds
 301 newton iterations
 --------------------------------------------------------------------------------
 Goodbye!
+
+
+========================================================================
+00111111 10111011 10011010 00000000 10001111 01010000 01000100 11101001 
+00111111 10111011 10011010 00000000 01111000 11100110 01000010 10110111 
+-------------------------------------------------------------------------
+
+It is important to understand that in floating point operations the associative and comutative properties
+of arithmetic do not old. This happens because there is a finite number of bits that can represent a floating point in computation.
+Taking the prior statement into consideration along with the undeterministic nature of thread schedulling, we can now understand how
+parallelization of a block of code can generate a result of which the binary representation may very differ between executions with the exact
+same starting conditions. Hence, because I employ the use of a reduction diretive the binary result is not only different from the serial version
+but also different between different executions, given the same starting conditions.

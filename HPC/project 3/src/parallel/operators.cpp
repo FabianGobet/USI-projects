@@ -89,7 +89,7 @@ void diffusion(const data::Field &s, data::Field &f)
 
         // inner north boundary
         //TODO - done
-        #pragma omp parallel for default(none) shared(f,s,alpha,beta,y_old,iend,iend,bndN,j)
+        #pragma omp parallel for default(none) shared(f,s,alpha,beta,y_old,iend,bndN,j)
         for (int i = 1; i < iend; i++)
         {
             f(i,j) = -(4. + alpha) * s(i,j)
@@ -121,7 +121,7 @@ void diffusion(const data::Field &s, data::Field &f)
 
         // inner south boundary
         //TODO - done
-        #pragma omp parallel for default(none) shared(f,s,alpha,beta,y_old,iend,iend,bndS,j)
+        #pragma omp parallel for default(none) shared(f,s,alpha,beta,y_old,iend,bndS,j)
         for (int i = 1; i < iend; i++)
         {
             f(i,j) = -(4. + alpha) * s(i,j)
