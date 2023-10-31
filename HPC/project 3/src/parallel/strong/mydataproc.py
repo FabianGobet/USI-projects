@@ -29,7 +29,6 @@ for col,tit in zip(columns,titles):
         plt.xticks(numt_values, fontsize=7)
         
         pre_yticks = np.concatenate((values_array.reshape(-1),serial_dt.reshape(-1)))
-        if col == "iters_cg": print(pre_yticks)
         M = np.max(pre_yticks)
         m = np.min(pre_yticks)
         no_intervals = 20

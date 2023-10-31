@@ -77,7 +77,6 @@ void hpc_fill(Field& x, const double value, const int N)
     //TODO - done
     for (int i = 0; i < N; i++)
         x[i] = value;
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////
