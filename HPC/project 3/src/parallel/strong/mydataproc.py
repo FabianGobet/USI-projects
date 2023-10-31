@@ -11,7 +11,7 @@ columns = df.columns[2:5:2]
 numt_values = np.sort(df['threads'].unique())
 numt = np.max(numt_values)
 mesh_values = np.sort(df['size'].unique())
-titles = ["Simulation times\n", "Iterations per second\n"]
+titles = ["Simulation times\n", "Conjugate gradient terations per second\n"]
 
 
 for col,tit in zip(columns,titles):
