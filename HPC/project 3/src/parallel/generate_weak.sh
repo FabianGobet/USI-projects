@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "i,j,size,threads,time,iters_cg,iters_second,newton_iter" > mydata.csv
 
 for i in 8 16 32 64; do
     for j in {1..24}; do
