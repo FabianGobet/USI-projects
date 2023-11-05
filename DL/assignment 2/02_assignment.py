@@ -7,6 +7,8 @@ import torch
 import torch.nn as nn
 from torch.utils.data import TensorDataset, DataLoader
 import torch.nn.functional as F
+import torch.optim as optim
+import torchmetrics
 import torchvision
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
@@ -53,32 +55,47 @@ if __name__ == "__main__":
     #histo(dataset_test, "Cifar10 test set")
     
     # 1.1.2
-    '''
+    
     sample = dataset_train[0]
-    print(f"{type(sample)}")
+    print(f"\n1.1.2: dataset_train[0].shape -> type: {type(sample)}")
     for i in sample:
-        print(type(i))
+        print(f"1.1.2: type(dataset_train[0]) components -> type: {type(i)}")
 
     transform1 = transforms.ToTensor()
     dataset_train.transform = transform1
     dataset_test.transform = transform1
 
-    print(type(dataset_test))
+    print(f"1.1.2: transform1(dataset_train) -> type: {type(dataset_test)}")
     sample = dataset_train[0]
-    print(f"{type(sample)}")
+    print(f"1.1.2: transform1(dataset_train[0]) -> type: {type(sample)}")
     for i in sample:
-        print(type(i))
-    i,j = sample
-    print(i.shape, i.dtype)
-    '''
+        print(f"1.1.2: type(transform1(dataset_train[0])) components -> type: {type(i)}")
+    i,_ = sample
+    print(f"1.1.2: type(transform1(dataset_train[0][0]))  -> shape: {i.shape}, dtype: {i.dtype}\n")
+    
+
     # 1.1.3
     transform2 = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5))])
     dataset_train.transform = transform2
     dataset_test.transform = transform2
     
+
     # 1.1.4
-    
     train_data, val_data, train_labels, val_labels = train_test_split(dataset_test.data, dataset_test.targets, test_size=0.2, random_state=42)
+
+    print(f"1.1.4: train_data, train_labels -> type: {type(train_data)}, {type(train_labels)}")
+    print(f"1.1.4: train_data -> shape: {train_data.shape}")
+
+    train_data = torch.FloatTensor(train_data).permute(0,3,1,2)
+    val_data = torch.FloatTensor(val_data).permute(0,3,1,2)
+    train_labels = torch.IntTensor(train_labels)
+    val_labels = torch.IntTensor(val_labels)
+
+    print(f"1.1.4: train_data -> shape: {train_data.shape}, dtype: {train_data.dtype}")
+    print(f"1.1.4: train_labels -> shape: {train_labels.shape}, dtype: {train_labels.dtype}")
+    print(f"1.1.4: val_data -> shape: {val_data.shape}, dtype: {val_data.dtype}")
+    print(f"1.1.4: val_labels -> shape: {val_labels.shape}, dtype: {val_labels.dtype}\n")
+
 
     # 1.2
     class myNet(nn.Module):
@@ -92,23 +109,92 @@ if __name__ == "__main__":
             self.fc2 = nn.Linear(in_features=84, out_features=10)
 
         def forward(self,x):
-            x = self.avgpool(nn.Tanh(self.conv1(x)))
-            x = self.avgpool(nn.Tanh(self.conv2(x)))
-            x = nn.Tanh(self.conv3(x))
+            x = self.avgpool(nn.Tanh()(self.conv1(x)))
+            x = self.avgpool(nn.Tanh()(self.conv2(x)))
+            x = nn.Tanh()(self.conv3(x))
             x = torch.flatten(x,1)
-            x = nn.Tanh(self.fc1(x))
-            x = nn.Softmax(self.fc2(x))
+            x = nn.Tanh()(self.fc1(x))
+            return nn.Sigmoid()(self.fc2(x))
+
     
+
     # 1.3
+    batch_size = 500 # 8000/batch_size = 8 batches
+    num_epochs = 100 # num_epochs*num_batches = 800 no iterations
+    learning_rate = 4e-3
+    accum_iter = 1 # no_iterations/accum_iter = 160 weight updates
+    DEVICE = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
     
-    train_labels = F.one_hot(torch.Tensor(train_labels).long(), num_classes=10).to(torch.float32)
-    dataset_train = TensorDataset(torch.Tensor(train_data),train_labels)
+    #train_labels = F.one_hot(train_labels, num_classes=10).to(torch.float32)
+    dataset_train = TensorDataset(train_data,train_labels)
 
-    val_labels = F.one_hot(torch.Tensor(val_labels).long()-1, num_classes=10).to(torch.float32)
-    dataset_val = TensorDataset(torch.Tensor(val_data),val_labels)
+    #val_labels = F.one_hot(val_labels, num_classes=10).to(torch.float32)
+    dataset_val = TensorDataset(val_data,val_labels)
 
-    model = myNet()
-    print(model)
+    train_loader = DataLoader(dataset=dataset_train, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(dataset=dataset_val, batch_size=len(dataset_val), shuffle=False)
+
+    model = myNet().to(DEVICE)
+    optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+    loss_fn = nn.CrossEntropyLoss()
+    print(f"1.3: {model}")
+    print(f"1.3: {optimizer}")
+
+    train_accuracies = []
+    val_accuracies = []
+    train_loss = []
+    val_loss = []
+    n = 25
+    iteration = 1
+
+
+    for epoch in range(num_epochs):
+        loss_val = 0.0
+        correct_test = 0.0
+        for i, data in enumerate(train_loader,1):
+            model.train()
+            inputs, targets = data
+            inputs = inputs.to(DEVICE)
+            targets = targets.to(DEVICE)
+
+            yhat = model(inputs)
+
+            loss = loss_fn(yhat,targets)
+            loss = loss/accum_iter
+            loss_val = loss_val + loss.item()
+            loss.backward()
+            
+            _, predicted = torch.max(yhat,1)
+            correct_test = correct_test + (predicted == targets).sum().item()
+
+            if(i%accum_iter==0 or i==len(train_loader)):
+                train_loss.append(loss_val)
+                optimizer.step()
+                optimizer.zero_grad()
+                train_accuracies.append(correct_test/(accum_iter*batch_size))
+                loss_val = 0.0
+                correct_test = 0.0
+                
+                with torch.no_grad():
+                    model.eval()
+                    for data, targets in val_loader: # only 1 batch
+                        data = data.to(DEVICE)
+                        targets = targets.to(DEVICE)
+
+                        outputs = model(data)
+                        loss = loss_fn(outputs,targets)
+                        val_loss.append(loss.item())
+                        _, predicted = torch.max(outputs,1)
+                        correct_val = (predicted == targets).sum().item()
+                        val_accuracies.append(correct_val/len(targets))
+
+            if(iteration%n == 0):
+                print(f"Epoch {epoch}, iteration {iteration}")
+                print(f"Train -> accuracy: {train_accuracies[-1]*100:.2f}, loss: {train_loss[-1]:.4f}")
+                print(f"Validation -> accuracy: {val_accuracies[-1]*100:.2f}, loss: {val_loss[-1]:.4f}\n")
+            iteration = iteration + 1
+
+
 
     '''
     Code for bonus question
