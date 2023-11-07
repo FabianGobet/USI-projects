@@ -8,7 +8,6 @@ import torch.nn as nn
 from torch.utils.data import TensorDataset, DataLoader
 import torch.nn.functional as F
 import torch.optim as optim
-import torchmetrics
 import torchvision
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
@@ -40,6 +39,25 @@ def histo(dataset, set_name):
     plt.xticks(fontsize=8)
     plt.ylabel("frequency")
     plt.show()
+
+def plot_results(x,y1,y2,ylabel,label1,label2,title,save_name=None,show=False,color1='blue',color2='green'):
+        fig, _ = plt.subplots(figsize=(7,5))
+        fig.suptitle(title)
+        plt.plot(x, y1, color=color1, label=label1)
+        plt.plot(x, y2, color=color2, label=label2)
+        plt.xlabel("steps")
+        plt.ylabel(ylabel)
+        plt.legend()
+        if(save_name is not None):
+            plt.savefig(save_name)
+        if(show):
+            plt.show()
+        
+
+def loss_acc_message(epoch,num_epochs,step,max_steps,train_loss,val_loss,train_acc,val_acc):
+    print(f"Epoch {epoch}/{num_epochs}, Step {step}/{max_steps}")
+    print(f"Train -> accuracy: {train_acc[-1]*100:.2f}, loss: {train_loss[-1]:.4f}")
+    print(f"Validation -> accuracy: {val_acc[-1]*100:.2f}, loss: {val_loss[-1]:.4f}\n")
     
 
 if __name__ == "__main__":
@@ -88,8 +106,8 @@ if __name__ == "__main__":
 
     train_data = torch.FloatTensor(train_data).permute(0,3,1,2)
     val_data = torch.FloatTensor(val_data).permute(0,3,1,2)
-    train_labels = torch.IntTensor(train_labels)
-    val_labels = torch.IntTensor(val_labels)
+    train_labels = torch.LongTensor(train_labels)
+    val_labels = torch.LongTensor(val_labels)
 
     print(f"1.1.4: train_data -> shape: {train_data.shape}, dtype: {train_data.dtype}")
     print(f"1.1.4: train_labels -> shape: {train_labels.shape}, dtype: {train_labels.dtype}")
@@ -101,100 +119,145 @@ if __name__ == "__main__":
     class myNet(nn.Module):
         def __init__(self):
             super().__init__()
-            self.conv1 = nn.Conv2d(in_channels=3, out_channels=6, kernel_size=(4,4), stride=1)
-            self.avgpool = nn.AvgPool2d(kernel_size=(2,2),stride=2)
-            self.conv2 = nn.Conv2d(in_channels=6, out_channels=16, kernel_size=(4,4), stride=1)
-            self.conv3 = nn.Conv2d(in_channels=16, out_channels=120, kernel_size=(5,5), stride=1)
-            self.fc1 = nn.Linear(in_features=120, out_features=84)
-            self.fc2 = nn.Linear(in_features=84, out_features=10)
+            self.conv1 = nn.Conv2d(in_channels=3, out_channels=18, kernel_size=(5,5), stride=1)
+            self.conv2 = nn.Conv2d(in_channels=18, out_channels=30, kernel_size=(5,5), stride=1)
+            self.pool1 = nn.AvgPool2d(kernel_size=(4,4),stride=1)
 
+            self.conv3 = nn.Conv2d(in_channels=30, out_channels=45, kernel_size=(4,4), stride=1)
+            self.conv4 = nn.Conv2d(in_channels=45, out_channels=60, kernel_size=(4,4), stride=1) 
+            self.pool2 = nn.AvgPool2d(kernel_size=(4,4),stride=1) 
+            self.conv5 = nn.Conv2d(in_channels=60, out_channels=75, kernel_size=(5,5), stride=1) 
+            self.pool3 = nn.AvgPool2d(kernel_size=(5,5),stride=1)
+            self.conv6 = nn.Conv2d(in_channels=75, out_channels=90, kernel_size=(4,4), stride=1) 
+            self.fc1 = nn.Linear(in_features=90, out_features=50) 
+            self.fc2 = nn.Linear(in_features=50, out_features=25) 
+            self.fc3 = nn.Linear(in_features=25, out_features=10)
+            
         def forward(self,x):
-            x = self.avgpool(nn.Tanh()(self.conv1(x)))
-            x = self.avgpool(nn.Tanh()(self.conv2(x)))
-            x = nn.Tanh()(self.conv3(x))
+            tanh = nn.Tanh()
+            x = self.pool1(F.tanh(self.conv2(F.tanh(self.conv1(x)))))
+            x = self.pool2(F.tanh(self.conv4(F.tanh(self.conv3(x)))))
+            x = self.pool3(F.tanh(self.conv5(x)))
+            x = F.tanh(self.conv6(x))
             x = torch.flatten(x,1)
-            x = nn.Tanh()(self.fc1(x))
-            return nn.Sigmoid()(self.fc2(x))
+            x = F.tanh(self.fc1(x)) # change from sigmoid
+            x = F.tanh(self.fc2(x))
+            x = self.fc3(x)
+            return x # change from Sigmoid
 
     
-
-    # 1.3
-    batch_size = 500 # 8000/batch_size = 8 batches
-    num_epochs = 100 # num_epochs*num_batches = 800 no iterations
-    learning_rate = 4e-3
-    accum_iter = 1 # no_iterations/accum_iter = 160 weight updates
-    DEVICE = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
     
-    #train_labels = F.one_hot(train_labels, num_classes=10).to(torch.float32)
+    # 1.3.1
+    batch_size = 32 # 8000/64 = 125 batches -> total_batches = len(train_loader)/batch_size
+    num_epochs = 30 # 125*10 = 1250 steps - > max_steps = num_epochs*len(train_loader)/batch_size
+    learning_rate = 8e-5
+    weight_decay = 1e-4
+    max_steps = -((-len(train_data)*num_epochs)//batch_size)
+    n = max_steps//50 
+    
     dataset_train = TensorDataset(train_data,train_labels)
-
-    #val_labels = F.one_hot(val_labels, num_classes=10).to(torch.float32)
-    dataset_val = TensorDataset(val_data,val_labels)
-
     train_loader = DataLoader(dataset=dataset_train, batch_size=batch_size, shuffle=True)
-    val_loader = DataLoader(dataset=dataset_val, batch_size=len(dataset_val), shuffle=False)
 
+    DEVICE = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    val_data = val_data.to(DEVICE)
+    val_labels = val_labels.to(DEVICE)
     model = myNet().to(DEVICE)
-    optimizer = optim.Adam(model.parameters(), lr=learning_rate)
-    loss_fn = nn.CrossEntropyLoss()
-    print(f"1.3: {model}")
-    print(f"1.3: {optimizer}")
+    
+    optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
+    loss_fn = nn.CrossEntropyLoss(reduction='sum')
 
-    train_accuracies = []
-    val_accuracies = []
+    #print(f"1.3: {model}")
+    #print(f"1.3: {optimizer}")
+
+    train_acc = []
+    val_acc = []
     train_loss = []
     val_loss = []
-    n = 25
-    iteration = 1
+    step_indices = [0]
+    step = 0
+    
 
+        # Initialize lists on step 0
+    for i, (d,t) in enumerate([(train_data,train_labels), (val_data,val_labels)],0):
+        with torch.no_grad():
+            model.eval()
+            d = d.to(DEVICE)
+            t = t.to(DEVICE)
+            t_yhat = model(d)
+            t_loss = loss_fn(t_yhat,t)
+            t_yhat = F.softmax(t_yhat)
+            _, pred = torch.max(t_yhat,1)
+            corr = (pred == t).sum().item()
+            if i==0:
+                train_loss.append(t_loss.item())
+                train_acc.append(corr/len(t))
+            else:
+                val_loss.append(t_loss.item())
+                val_acc.append(corr/len(t))
+    
+    # 1.3.2
+    t_loss_val = 0.0
+    t_correct = 0.0
+    cycles = 0.0
+    loss_acc_message(0,num_epochs,step,max_steps,train_loss,val_loss,train_acc,val_acc)
+    for epoch in range(1,num_epochs+1):
+        for batch_num, (t_data,t_targets) in enumerate(train_loader,1):
+            step = step + 1
+            cycles = cycles +1
 
-    for epoch in range(num_epochs):
-        loss_val = 0.0
-        correct_test = 0.0
-        for i, data in enumerate(train_loader,1):
             model.train()
-            inputs, targets = data
-            inputs = inputs.to(DEVICE)
-            targets = targets.to(DEVICE)
+            t_data = t_data.to(DEVICE)
+            t_targets = t_targets.to(DEVICE)
 
-            yhat = model(inputs)
+            t_yhat = model(t_data)
 
-            loss = loss_fn(yhat,targets)
-            loss = loss/accum_iter
-            loss_val = loss_val + loss.item()
-            loss.backward()
+            t_loss = loss_fn(t_yhat,t_targets)
+            t_loss_val = t_loss_val + t_loss.item()
+            t_loss.backward()
             
-            _, predicted = torch.max(yhat,1)
-            correct_test = correct_test + (predicted == targets).sum().item()
+            _, t_pred = torch.max(t_yhat,1)
+            t_correct = t_correct + (t_pred == t_targets).sum().item()
 
-            if(i%accum_iter==0 or i==len(train_loader)):
-                train_loss.append(loss_val)
-                optimizer.step()
-                optimizer.zero_grad()
-                train_accuracies.append(correct_test/(accum_iter*batch_size))
-                loss_val = 0.0
-                correct_test = 0.0
-                
+            optimizer.step()
+            optimizer.zero_grad()
+
+            if step%n==0 or step==max_steps:
+                step_indices.append(step)
+                train_loss.append(t_loss_val/cycles)
+                train_acc.append(t_correct/(batch_size*cycles))
+            
                 with torch.no_grad():
                     model.eval()
-                    for data, targets in val_loader: # only 1 batch
-                        data = data.to(DEVICE)
-                        targets = targets.to(DEVICE)
 
-                        outputs = model(data)
-                        loss = loss_fn(outputs,targets)
-                        val_loss.append(loss.item())
-                        _, predicted = torch.max(outputs,1)
-                        correct_val = (predicted == targets).sum().item()
-                        val_accuracies.append(correct_val/len(targets))
+                    v_yhat = model(val_data)
+                    v_loss = loss_fn(v_yhat,val_labels)
+                    val_loss.append(v_loss.item())
 
-            if(iteration%n == 0):
-                print(f"Epoch {epoch}, iteration {iteration}")
-                print(f"Train -> accuracy: {train_accuracies[-1]*100:.2f}, loss: {train_loss[-1]:.4f}")
-                print(f"Validation -> accuracy: {val_accuracies[-1]*100:.2f}, loss: {val_loss[-1]:.4f}\n")
-            iteration = iteration + 1
+                    _, v_pred = torch.max(v_yhat,1)
+                    v_correct = (v_pred == val_labels).sum().item()
+                    val_acc.append(v_correct/len(val_labels))
 
+                t_loss_val = 0.0
+                t_correct = 0.0
+                cycles = 0.0
+                loss_acc_message(epoch,num_epochs,step,max_steps,train_loss,val_loss,train_acc,val_acc)
+            
+                    
 
+            
+            
+
+    # 1.3.3
+    checkpoint = {
+        'model_state' : model.state_dict(),
+        'optimizer' : optimizer.state_dict()
+    }
+
+    #torch.save(checkpoint, 'Fabian_Gobet_1.pt')
+
+    # 1.3.4 
+    plot_results(step_indices,train_loss,val_loss,'loss','train loss','validation loss','Train/Validation losses',show=True)
+    plot_results(step_indices,torch.tensor(train_acc)*100,torch.tensor(val_acc)*100,'% accuracy','train accuracy','validation accuracy','Train/Validation accuracies',show=True)
 
     '''
     Code for bonus question
