@@ -1,0 +1,57 @@
+base) fabiangobet@Fabians-MBP ghost % make; mpirun -np 16 --oversubscribe ./ghost
+mpicc -O3 ghost.c -o ghost
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  Fabians-MBP.usilu.net
+  System call: unlink(2) /var/folders/y6/xr5ypjn93nj_8t9k_81kvp2c0000gn/T//ompi.Fabians-MBP.501/pid.57497/1/vader_segment.Fabians-MBP.501.71a0001.6
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+
+export TMPDIR=/tmp
+https://stackoverflow.com/questions/52550549/open-mpi-not-enough-slots-available
+
+int rank, size;
+MPI_Comm comm_cart;
+
+// Initialize MPI and obtain rank and size
+MPI_Init(NULL, NULL);
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+// Create a Cartesian communicator
+int ndims = 2;  // Number of dimensions for the Cartesian grid
+int dims[2] = {4, 4};  // Dimensions of the grid (4x4 in this example)
+int periods[2] = {1, 1};  // Periodic boundaries in both dimensions
+int reorder = 0;  // Do not reorder ranks
+
+MPI_Cart_create(MPI_COMM_WORLD, ndims, dims, periods, reorder, &comm_cart);
+
+// Use MPI_Cart_shift to find the upper and lower neighbors
+int x_direction = 0;  // 0 for the "x" dimension (left/right)
+int y_direction = 1;  // 1 for the "y" dimension (up/down)
+int x_disp = 1;  // Move one position in the x dimension (left or right)
+int y_disp = 1;  // Move one position in the y dimension (up or down)
+int upper_rank, lower_rank;
+
+MPI_Cart_shift(comm_cart, x_direction, x_disp, NULL, NULL); // Find left/right neighbors (not used here)
+MPI_Cart_shift(comm_cart, y_direction, y_disp, &upper_rank, &lower_rank);
+
+// Now, 'upper_rank' contains the rank of your upper neighbor, and 'lower_rank' contains the rank of your lower neighbor
+if (upper_rank != MPI_PROC_NULL) {
+    printf("My upper neighbor's rank is %d\n", upper_rank);
+} else {
+    printf("I am on the top edge, no upper neighbor\n");
+}
+
+if (lower_rank != MPI_PROC_NULL) {
+    printf("My lower neighbor's rank is %d\n", lower_rank);
+} else {
+    printf("I am on the bottom edge, no lower neighbor\n");
+}
+
+// Finalize MPI
+MPI_Comm_free(&comm_cart);
+MPI_Finalize();
