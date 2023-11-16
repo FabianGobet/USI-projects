@@ -36,13 +36,13 @@ int main (int argc, char *argv[])
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
 
-    right = (my_rank+1)%(size);/* get rank of neighbor to your right */
-    left  = (my_rank-1)%(size);/* get rank of neighbor to your left */
+    right = (my_rank+1)%(size);
+    left  = (my_rank-1)%(size);
     
     snd_buf = (3*my_rank)%(2*size);
     max = snd_buf;
 
-    for(int i = 0; i<size-1; i++){
+    for(int i = 0; i<size; i++){
         MPI_Send(&snd_buf,1,MPI_INT,right,0,MPI_COMM_WORLD);
         MPI_Recv(&rcv_buf,1,MPI_INT,left,0,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
         if(rcv_buf>max)

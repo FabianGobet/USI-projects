@@ -141,7 +141,7 @@ int main (int argc, char** argv)
 		{
 			Partition p1 = updatePartition(p, proc);
 			Domain d1 = createDomain(p1);
-			//printf("Starting %d", proc);
+			
 			// TODO: receive partition of the process proc into array c (overwrite its data)
 			MPI_Status status;
 			MPI_Recv(c,(d1.nx)*(d1.ny),MPI_INT,proc,0,p.comm,&status);

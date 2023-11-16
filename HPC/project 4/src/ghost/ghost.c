@@ -83,31 +83,26 @@ int main(int argc, char *argv[])
     periods[1] = 1;
     int reorder = 0;
 
-    
-    
     // TODO: Create a Cartesian communicator (4*4) with periodic boundaries (we do not allow
     // the reordering of ranks) and use it to find your neighboring
     // ranks in all dimensions in a cyclic manner.
     MPI_Dims_create(size, 2, dims);  
     MPI_Cart_create(MPI_COMM_WORLD, 2, dims, periods, reorder, &comm_cart);
     MPI_Comm_rank(comm_cart, &rank);
+
     // TODO: find your top/bottom/left/right neighbor using the new communicator, see MPI_Cart_shift()
     // rank_top, rank_bottom
     // rank_left, rank_right
     MPI_Cart_shift(comm_cart, 0, 1, &rank_top, &rank_bottom);
     MPI_Cart_shift(comm_cart, 1, 1, &rank_left, &rank_right);
-    //int my_coords[2];
-    //MPI_Cart_coords(comm_cart, rank, 2, my_coords);
-    //printf("[rank %d, location (%d, %d)] -> top:%d, bottom: %d, left: %d, right: %d.\n", rank, my_coords[0],my_coords[1], rank_top, rank_bottom, rank_left, rank_right);
-    //printf("[rank %d] I am rank % at (%d, %d).\n", rank, my_coords[0],my_coords[1]);
 
     //  TODO: create derived datatype data_ghost, create a datatype for sending the column, see MPI_Type_vector() and MPI_Type_commit()
     // data_ghost
     MPI_Type_vector(SUBDOMAIN, 1, DOMAINSIZE, MPI_DOUBLE, &data_ghost);
     MPI_Type_commit(&data_ghost);
+
     //  TODO: ghost cell exchange with the neighbouring cells in all directions
     //  use MPI_Irecv(), MPI_Send(), MPI_Wait() or other viable alternatives
-
     //  to the top
     MPI_Send(&data[DOMAINSIZE+1],SUBDOMAIN,MPI_DOUBLE,rank_top,0,comm_cart);
     MPI_Recv(&data[DOMAINSIZE*(DOMAINSIZE-1)+1],SUBDOMAIN,MPI_DOUBLE,rank_bottom,0,comm_cart,&status);
