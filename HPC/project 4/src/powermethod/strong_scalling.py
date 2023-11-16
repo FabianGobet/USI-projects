@@ -34,17 +34,6 @@ fig.subplots_adjust(bottom=0.15)
 ax.grid(True)
 fig.savefig('strong_scalling')
 
-'''
-# Plotting the data
-fig, ax = plt.subplots(figsize=(10,6))
-fig.suptitle('Strong Scalling')
-ax.plot(p_values, time_values, marker='o', linestyle='-', color='b')
-ax.set_title(f'Time vs. Number of Processes, w/ fixed {n_values} matrix size')
-ax.set_xlabel('Number of Processors')
-ax.set_ylabel('Time (seconds)')
-ax.set_yscale('log')
-ax.set_yticks(time_values)
-'''
 
 # p against T1/P*Tp
 plt.clf()
@@ -54,7 +43,7 @@ for p,t in zip(p_values,time_values):
     efficiency.append(time_values[0]/(p*t))
 
 fig, ax = plt.subplots(figsize=(10,6))
-fig.suptitle('Strong Scalling')
+fig.suptitle('Strong Scalling efficiency')
 ax.plot(p_values, efficiency, marker='o', linestyle='-', color='b')
 ax.set_title(f'Time vs. Number of Processes\nFixed workload per processor')
 ax.set_xlabel('Number of Processors')
