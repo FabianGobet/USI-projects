@@ -55,8 +55,8 @@ void SubDomain::init(int mpi_rank, int mpi_size, Discretization& discretization)
 
     // set neighbours for all directions
     //TODO: Determine rank of neighbour_south neighbour_north neighbour_east neighbour_west
-    MPI_Cart_shift(comm_cart, 1, 1, &neighbour_north, &neighbour_south);
-    MPI_Cart_shift(comm_cart, 0, 1, &neighbour_west, &neighbour_east);
+    MPI_Cart_shift(comm_cart, 0, 1, &neighbour_south,&neighbour_north);
+    MPI_Cart_shift(comm_cart, 1, 1, &neighbour_west, &neighbour_east);
 
     // get bounding box
     nx = discretization.nx / ndomx;
