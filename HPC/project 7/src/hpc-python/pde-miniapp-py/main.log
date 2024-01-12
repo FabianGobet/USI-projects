@@ -1,0 +1,76 @@
+Traceback (most recent call last):
+  File "/Users/fabiangobet/Desktop/USI/HPC/project 7/src/hpc-python/pde-miniapp-py/main.py", line 1, in <module>
+    from mpi4py import MPI
+ImportError: dlopen(/Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libmpi.12.dylib
+  Referenced from: <6CE0F786-1EDD-38C0-BD4C-A20620EED4A6> /Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so
+  Reason: tried: '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file)
+Traceback (most recent call last):
+  File "/Users/fabiangobet/Desktop/USI/HPC/project 7/src/hpc-python/pde-miniapp-py/main.py", line 1, in <module>
+    from mpi4py import MPI
+ImportError: dlopen(/Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libmpi.12.dylib
+  Referenced from: <6CE0F786-1EDD-38C0-BD4C-A20620EED4A6> /Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so
+  Reason: tried: '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file)
+Traceback (most recent call last):
+  File "/Users/fabiangobet/Desktop/USI/HPC/project 7/src/hpc-python/pde-miniapp-py/main.py", line 1, in <module>
+    from mpi4py import MPI
+ImportError: dlopen(/Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libmpi.12.dylib
+  Referenced from: <6CE0F786-1EDD-38C0-BD4C-A20620EED4A6> /Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so
+  Reason: tried: '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file)
+Traceback (most recent call last):
+  File "/Users/fabiangobet/Desktop/USI/HPC/project 7/src/hpc-python/pde-miniapp-py/main.py", line 1, in <module>
+    from mpi4py import MPI
+ImportError: dlopen(/Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libmpi.12.dylib
+  Referenced from: <6CE0F786-1EDD-38C0-BD4C-A20620EED4A6> /Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so
+  Reason: tried: '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file)
+Traceback (most recent call last):
+  File "/Users/fabiangobet/Desktop/USI/HPC/project 7/src/hpc-python/pde-miniapp-py/main.py", line 1, in <module>
+    from mpi4py import MPI
+ImportError: dlopen(/Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libmpi.12.dylib
+  Referenced from: <6CE0F786-1EDD-38C0-BD4C-A20620EED4A6> /Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so
+  Reason: tried: '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file)
+Traceback (most recent call last):
+  File "/Users/fabiangobet/Desktop/USI/HPC/project 7/src/hpc-python/pde-miniapp-py/main.py", line 1, in <module>
+    from mpi4py import MPI
+ImportError: dlopen(/Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libmpi.12.dylib
+  Referenced from: <6CE0F786-1EDD-38C0-BD4C-A20620EED4A6> /Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so
+  Reason: tried: '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file)
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/fabiangobet/Desktop/USI/HPC/project 7/src/hpc-python/pde-miniapp-py/main.py", line 1, in <module>
+    from mpi4py import MPI
+ImportError: dlopen(/Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libmpi.12.dylib
+  Referenced from: <6CE0F786-1EDD-38C0-BD4C-A20620EED4A6> /Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so
+  Reason: tried: '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file)
+Traceback (most recent call last):
+  File "/Users/fabiangobet/Desktop/USI/HPC/project 7/src/hpc-python/pde-miniapp-py/main.py", line 1, in <module>
+    from mpi4py import MPI
+ImportError: dlopen(/Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libmpi.12.dylib
+  Referenced from: <6CE0F786-1EDD-38C0-BD4C-A20620EED4A6> /Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so
+  Reason: tried: '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file)
+Traceback (most recent call last):
+  File "/Users/fabiangobet/Desktop/USI/HPC/project 7/src/hpc-python/pde-miniapp-py/main.py", line 1, in <module>
+    from mpi4py import MPI
+ImportError: dlopen(/Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libmpi.12.dylib
+  Referenced from: <6CE0F786-1EDD-38C0-BD4C-A20620EED4A6> /Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so
+  Reason: tried: '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file)
+Traceback (most recent call last):
+  File "/Users/fabiangobet/Desktop/USI/HPC/project 7/src/hpc-python/pde-miniapp-py/main.py", line 1, in <module>
+    from mpi4py import MPI
+ImportError: dlopen(/Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libmpi.12.dylib
+  Referenced from: <6CE0F786-1EDD-38C0-BD4C-A20620EED4A6> /Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so
+  Reason: tried: '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file)
+Traceback (most recent call last):
+  File "/Users/fabiangobet/Desktop/USI/HPC/project 7/src/hpc-python/pde-miniapp-py/main.py", line 1, in <module>
+    from mpi4py import MPI
+ImportError: dlopen(/Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libmpi.12.dylib
+  Referenced from: <6CE0F786-1EDD-38C0-BD4C-A20620EED4A6> /Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so
+  Reason: tried: '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file)
+Traceback (most recent call last):
+  File "/Users/fabiangobet/Desktop/USI/HPC/project 7/src/hpc-python/pde-miniapp-py/main.py", line 1, in <module>
+    from mpi4py import MPI
+ImportError: dlopen(/Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libmpi.12.dylib
+  Referenced from: <6CE0F786-1EDD-38C0-BD4C-A20620EED4A6> /Users/fabiangobet/Desktop/src/hpc-python/myenv/lib/python3.11/site-packages/mpi4py/MPI.cpython-311-darwin.so
+  Reason: tried: '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/fabiangobet/anaconda3/lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file), '/Users/fabiangobet/anaconda3/bin/../lib/libmpi.12.dylib' (no such file)

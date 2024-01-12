@@ -1,3 +1,7 @@
 DL/assignment 2/data/
 *.DS_Store
 HPC/project 7/src/hpc-python/myenv/
+DL/assignment 4/data/
+*.pt
+*.pkl
+ECIoT/Trailer.mp4

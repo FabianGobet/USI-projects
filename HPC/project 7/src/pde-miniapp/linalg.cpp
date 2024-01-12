@@ -70,6 +70,7 @@ double hpc_dot(Field const& x, Field const& y)
 // x is a vector on length N
 double hpc_norm2(Field const& x)
 {
+    /*
     double result = 0;
     double result_global = 0;
     int N = x.length();
@@ -79,7 +80,8 @@ double hpc_norm2(Field const& x)
 
     // TODO compute norm over all ranks using "MPI_Allreduce" and "data::domain.comm_cart"
     MPI_Allreduce(&result, &result_global, 1, MPI_DOUBLE, MPI_SUM, data::domain.comm_cart);
-    return sqrt(result_global);
+    */
+    return sqrt(hpc_dot(x,x));
 }
 
 // sets entries in a vector to value

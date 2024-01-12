@@ -139,7 +139,6 @@ int main(int argc, char* argv[])
     int mpi_rank, mpi_size; //, threadLevelProvided;
     // TODO initialize
     MPI_Init(&argc, &argv);
-    // MPI_Init_thread(&argc, &argv, MPI_THREAD_SINGLE, &threadLevelProvided) // not using omp
     MPI_Comm_rank(MPI_COMM_WORLD, &mpi_rank);
 	MPI_Comm_size(MPI_COMM_WORLD, &mpi_size);
 

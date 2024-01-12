@@ -3,10 +3,13 @@ source ./myenv/bin/activate
 pip uninstall mpi4py
 which mpirun
 MPICC=/opt/homebrew/bin/mpicc pip install mpi4py
+pip install matplotlib
+pip install pandas
 export DYLD_LIBRARY_PATH=/opt/homebrew/lib:$DYLD_LIBRARY_PATH
 ln -s /opt/homebrew/lib/libmpi.40.dylib /opt/homebrew/lib/libmpi.12.dylib
 ln -s /opt/homebrew/lib/libmpi_usempi_ignore_tkr.40.dylib /opt/homebrew/lib/libmpi_usempi_ignore_tkr.12.dylib
 ln -s /opt/homebrew/lib/libmpi_usempif08.40.dylib /opt/homebrew/lib/libmpi_usempif08.12.dylib
 
+export DYLD_LIBRARY_PATH=/opt/homebrew/Cellar/open-mpi/4.1.6/lib:$DYLD_LIBRARY_PATH
 export DYLD_LIBRARY_PATH=/opt/homebrew/lib:$DYLD_LIBRARY_PATH
 export TMPDIR=/tmp

@@ -97,7 +97,6 @@ if __name__ == "__main__":
     max_newton_iters = 50
     tolerance = 1.e-6
     skip = 10 # write output every skip time step (or just last if skip < 1)
-    #control()
     if rank == 0:
         print(80*"=")
         print('{:^80}'.format("Welcome to mini-stencil!"))
@@ -113,7 +112,6 @@ if __name__ == "__main__":
 
     # print some domain decomposition specifics
     domain.print()
-    #control()
     # allocate global fields
     s_old  = data.Field(domain)
     s_new  = data.Field(domain)
@@ -140,7 +138,6 @@ if __name__ == "__main__":
                                      indexing='ij', sparse=True)
     R2_global = (X_global - xc)**2 + (Y_global - yc)**2
     s_new.inner[R2_global < radius**2] = 0.2
-    #control()
     # write initial conditions
     write_output("simulation", s_new, 0, 0.)
 
@@ -157,7 +154,6 @@ if __name__ == "__main__":
 
     # start timer
     timespent = - time.perf_counter()
-    #control()
     # main time loop
     t        = 0. # initial time
     timestep = 0 # initial step
@@ -175,7 +171,6 @@ if __name__ == "__main__":
             # compute residual
             operators.diffusion(options, s_old, s_new, f)
             residual = linalg.hpc_norm2(f)
-            #print("Residual: ",residual)
 
             # check for convergence
             if residual < tolerance:
@@ -222,7 +217,6 @@ if __name__ == "__main__":
                        "Newton iterations failed to converge,",
                       f"residual = {residual:f}")
             break
-    #control()
 
     # stop timer
     timespent += time.perf_counter()
@@ -234,8 +228,6 @@ if __name__ == "__main__":
                "at rate of {:f} iters/second".format(iters_cg/timespent))
         print(f"{iters_newton:d} newton iterations")
         print(80*"-")
-    #control()
     if domain.rank == 0:
         print("=== End of simulation. Goodbye! ===")
-    #control()
 
