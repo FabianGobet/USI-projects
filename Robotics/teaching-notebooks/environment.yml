@@ -1,0 +1,8 @@
+name: robotics
+channels:
+- defaults
+dependencies:
+- numpy
+- tqdm
+- matplotlib
+prefix: /home/lale/anaconda3/envs/robotics
