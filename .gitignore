@@ -3,8 +3,7 @@ High Performance Computing/project 7/src/hpc-python/myenv/
 Deep Learning Lab/assignment 4/data/
 Edge Computing in the IoT/Trailer.mp4
 Robotics/project1/Robotics_2024-arm64-v1.vmwarevm
-Computer Vision and Pattern Recognition/project/data/WSC.mp4
-Computer Vision and Pattern Recognition/project/data/WSC_filtered.mp4
+Computer Vision and Pattern Recognition/project/data/*.mp4
 *.pt
 *.pkl
 *.DS_Store
