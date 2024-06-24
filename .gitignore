@@ -1,10 +1,10 @@
-DL/assignment 2/data/
-*.DS_Store
-HPC/project 7/src/hpc-python/myenv/
-DL/assignment 4/data/
+Deep Learning Lab/assignment 2/data/
+High Performance Computing/project 7/src/hpc-python/myenv/
+Deep Learning Lab/assignment 4/data/
+Edge Computing in the IoT/Trailer.mp4
+Robotics/project1/Robotics_2024-arm64-v1.vmwarevm
+Computer Vision and Pattern Recognition/project/data/WSC.mp4
+Computer Vision and Pattern Recognition/project/data/WSC_filtered.mp4
 *.pt
 *.pkl
-ECIoT/Trailer.mp4
-Robotics/project1/Robotics_2024-arm64-v1.vmwarevm
-CVPR/project/data/WSC.mp4
-CVPR/project/data/WSC_filtered.mp4
+*.DS_Store
