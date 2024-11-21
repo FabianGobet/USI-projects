@@ -1,0 +1,16 @@
+FREQ:
+Average precision = 0.08
+Recall = 0.4
+
+TF-IDF:
+Average precision = 0.12
+Recall = 0.4
+
+LSI:
+Average precision = 0.14
+Recall = 0.5
+
+Doc2Vec:
+Average precision = 0.06000000000000001
+Recall = 0.2
+
