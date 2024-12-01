@@ -1,0 +1,13 @@
+No,Hit,Organism,Similarity,Identities,Query Coverage,E-value,Name
+1,8x17_r,rattus norvegicus,1.551,100.0,96.226,1.6e-36,"adenosine receptor a3; gpcr, adenosine a3 receptor, ligand selectivity, cf102, membrane protein; het: xs0; 3.19a "
+20,7ld3_r,homo sapiens,0.909,48.0,99.686,1.5e-31,"chimera protein of muscarinic acetylcholine receptor m4 and adenosine receptor a1; signaling protein, membrane protein, active-state g protein-coupled receptor, adenosine a1 receptor, pam, allosteric modulator; het: xtd, adn; 3.2a "
+5,5uen_a,homo sapiens,0.885,48.0,96.226,2.5e-33,"adenosine receptor a1,soluble cytochrome b562,adenosine receptor a1; gpcr, transmembrane, receptor, adenosine, membrane protein; het: ola, du1; 3.2a "
+63,5n2s_a,escherichia coli,0.84,46.0,99.686,1.4e-30,"soluble cytochrome b562,adenosine receptor a1; g-protein-coupled receptor, integral thermostabilizing mutations, membrane protein; het: so4, 8k8; 3.303a "
+102,7t32_a,homo sapiens,0.818,45.0,88.994,1.7e-30,"adenosine receptor a2a/soluble cytochrome b562 fusion protein; a2aar, gpcr, adenosine receptor, membrane protein; het: zma; 3.4a "
+2,8jwy_a,homo sapiens,0.782,42.0,94.025,5.9e-34,"adenosine receptor a2a,endolysin; adenosine receptor 2a, gpcr, inhibitor, signaling protein; het: vbf, ola, olc, clr; 2.33a "
+3,5nm4_a,homo sapiens,0.762,41.0,94.025,1.8e-33,"adenosine receptor a2a,soluble cytochrome b562,adenosine receptor a2a; room-temperature, serial crystallography, signaling protein; het: clr, ola, zma; 1.7a "
+83,6gdg_a,escherichia coli,0.752,42.0,96.855,2.5e-30,"trxa,adenosine receptor a2a; g-protein coupled receptor, adenosine, gpcr, a2a receptor, membrane protein; het: nec; 4.11a "
+49,8hdo_r,homo sapiens,0.734,39.0,97.484,1.8e-30,"adenosine a2b receptor; gpcr, a2br, bay 60-6583, membrane protein; het: clr, i5d; 2.87a "
+11,8gng_x,mus musculus,0.724,39.0,99.686,1.2e-31,"adenosine receptor a2a; adenosine a2a receptor, istradefylline, neutral antagonist, membrane protein, membrane protein-immune system complex; het: olc, jq9; 3.2a "
+151,7xy6_r,homo sapiens,0.716,38.0,99.057,1.5e-29,"soluble cytochrome b562,adenosine receptor a2b,lgbit; g protein coupled-receptor, membrane protein; het: i5d;"
+22,4ug2_b,homo sapiens,0.699,40.0,97.799,3.1e-31,"thermostabilised human a2a receptor; signaling protein, g seven-helix receptor, integral membrane protein, agonist bound form, thermostabilising point mutations, gpcr, 7tm; het: olb, ngi; 2.6a "

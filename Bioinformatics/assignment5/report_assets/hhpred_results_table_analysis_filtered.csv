@@ -1,0 +1,9 @@
+PDB ID,Resolution,Suitability,Effector,Similarity,Identities,Query Coverage,Query HMM
+8X17,3.19 Å,Highly Suitable,Gi protein,1.551,100.0,96.226,"[1, 306]"
+8JWY,2.33 Å,Suitable,None,0.782,42.0,94.025,"[6, 304]"
+5NM4,1.70 Å,Suitable,None,0.762,41.0,94.025,"[8, 306]"
+6GDG,4.1 Å,Suitable,mini-Gs protein,0.752,42.0,96.855,"[3, 310]"
+8HDO,2.87 Å,Suitable,mini-Gs protein,0.734,39.0,97.484,"[8, 318]"
+7XY6,2.99 Å,Suitable,Gs protein,0.716,38.0,99.057,"[3, 318]"
+
+ ['8X17', '6GDG', '8HDO', '7XY6']

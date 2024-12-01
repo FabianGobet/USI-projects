@@ -1,0 +1,40 @@
+8X17, 5UEN, 5N2S, 7XY6
+ - two helix have light bents
+ - the end of one helix is very deformed
+ - one terminal not in good position
+
+8X17, 8JWY, 8HDO, 6GDG, 5N2S, 7XY6
+ - the end of an helix is very deformed
+ - one of the terminals in bad position
+ - one helix has light bents
+
+8X17, 8JWY, 6GDG, 7T32
+ - one helix with bents and some deformation
+ - terminals in good position
+ - the end of one helix is very deformed
+
+8X17, 5N2S, 6GDG, 7XY6, 4UG2
+  - two helixs have light bends
+  - one terminal slightly off position
+  - the end of one helix is very deformed
+
+8X17, 7T32, 8JWY, 6GDG, 7XY6
+ - light bents on one helix, but overall more stable
+ - the end of one helix is deformed, but less than usual
+ - one terminal slight off position
+
+8X17, 5N2S, 7T32, 8JWY, 6GDG, 7XY6
+ - end of one helix deformed
+ - end of another helix slightly deformed
+ - light bentx in one helix
+ - one terminal in off position
+
+
+ALL
+ - a lot of deformations, not good
+
+
+bests:
+8X17, 8JWY, 6GDG, 7T32, 7XY6
+
+8X17, 8JWY, 6GDG, 7T32, 7XY6, 5N2S, 5NM4, 5UEN, 4UG2, 8HDO

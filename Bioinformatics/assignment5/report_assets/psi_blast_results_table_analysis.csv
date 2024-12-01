@@ -1,0 +1,11 @@
+PDB ID,State,Ligand Type,Synthetic Ligand,Method,Resolution,Suitability,Comments
+8X16,Active,Agonist,CF101 (IB-MECA),Cryo-EM,3.30 Å,Highly Suitable,Direct representation of A3AR in the active state with a synthetic agonist.
+3VG9,Inactive,Allosteric Inverse-Agonist,Fab2838 (antibody),X-ray,3.00 Å,Not Suitable,Represents the inactive state with an allosteric inhibitor.
+2YDO,Intermediate,Agonist,Adenosine (endogenous),X-ray,2.60 Å,Moderately Suitable,Captures agonist binding but lacks a full active conformation.
+5G53,Active,Agonist,Synthetic agonist,X-ray,2.00 Å,Suitable,Represents active state of A2AR with engineered G protein; useful for G-protein interactions.
+8CIC,Active,Agonist,Adenosine (endogenous),Cryo-EM,3.60 Å,Highly Suitable,A1AR holo-active state; good for modeling G-protein interactions.
+5NLX,Active,Agonist,UK-432097 (synthetic),X-ray,2.60 Å,Highly Suitable,Fully active A2AR with mini-Gs protein and synthetic agonist.
+5JTB,Intermediate Active,Agonist,NECA (synthetic),X-ray,2.00 Å,Moderately Suitable,Good for ligand-binding pocket modeling but lacks a G-protein.
+8RLN,Inactive,Antagonist,Caffeine,X-ray,2.80 Å,Not Suitable,Inactive state with antagonist; not relevant for holo-active modeling.
+8DU3,Inactive,Antagonist,Theophylline,X-ray,2.70 Å,Not Suitable,Engineered structure in inactive state with antagonist bound.
+8A2O,Inactive,Antagonist,Theophylline,X-ray,2.80 Å,Not Suitable,Inactive state stabilized by synthetic antagonist.
