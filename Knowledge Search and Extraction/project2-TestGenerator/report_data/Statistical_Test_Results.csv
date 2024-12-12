@@ -1,0 +1,11 @@
+Test Name,Mean Fuzzer,Mean GA,Wilcoxon p-value,Effect Size (d),Power
+anagram_check.py,55.6,51.15,0.317,0.45,0.157
+caesar_cipher.py,75.45,75.91,0.792,0.15,0.061
+check_armstrong.py,25.66,24.36,0.276,0.47,0.168
+common_divisor_count.py,79.34,78.72,0.42,0.3,0.097
+exponentiation.py,74.0,76.0,0.317,0.45,0.157
+gcd.py,58.8,52.93,0.18,0.56,0.218
+longest_substring.py,88.58,87.87,0.863,0.13,0.059
+rabin_karp.py,68.05,64.34,0.441,0.38,0.125
+railfence_cipher.py,95.6,93.6,0.054,0.88,0.462
+zellers_birthday.py,79.56,79.24,0.581,0.35,0.116

@@ -1,0 +1,36 @@
+examples_tests/example1_tests.py tests:
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+
+
+
+examples_tests/example2_tests.py tests:
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+
+
+
+examples_tests/example3_tests.py tests:
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.000s
+
+OK
+
+
+
+examples_tests/example4_tests.py tests:
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.000s
+
+OK
+
+
+
