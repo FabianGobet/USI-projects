@@ -1,0 +1,14 @@
+Description(Sequences  with  E-value BETTER than threshold),Scientific Name,Max Score,Total Score,Query Cover,E value,Per. ident,Acc. Len,Accession  
+"Chain R, Mas-related G-protein coupled receptor member X2 [Homo sapiens]",Homo sapiens,137,137,90%,3e-37,35.13,331,"=HYPERLINK(""https://www.ncbi.nlm.nih.gov/protein/7S8L_R?report=genbank&log$=prottop&blast_rank=1&RID=SCSKFR93016"",""7S8L_R"")"
+"Chain A, Mas-related G-protein coupled receptor member D [Homo sapiens]",Homo sapiens,152,152,98%,6e-43,34.04,322,"=HYPERLINK(""https://www.ncbi.nlm.nih.gov/protein/9DQH_A?report=genbank&log$=prottop&blast_rank=2&RID=SCSKFR93016"",""9DQH_A"")"
+"Chain A, Prostaglandin D2 receptor 2 [Homo sapiens]",Homo sapiens,85.5,85.5,92%,3e-18,26.81,348,"=HYPERLINK(""https://www.ncbi.nlm.nih.gov/protein/8XXV_A?report=genbank&log$=prottop&blast_rank=3&RID=SCSKFR93016"",""8XXV_A"")"
+"Chain R, fMet-Leu-Phe receptor [Homo sapiens]",Homo sapiens,73.6,73.6,95%,5e-14,24.15,378,"=HYPERLINK(""https://www.ncbi.nlm.nih.gov/protein/7EUO_R?report=genbank&log$=prottop&blast_rank=4&RID=SCSKFR93016"",""7EUO_R"")"
+"Chain F, Galanin receptor type 2 [Homo sapiens]",Homo sapiens,41.2,41.2,90%,0.002,22.84,332,"=HYPERLINK(""https://www.ncbi.nlm.nih.gov/protein/7XJK_F?report=genbank&log$=prottop&blast_rank=5&RID=SCSKFR93016"",""7XJK_F"")"
+"Chain R, Melanin-concentrating hormone receptor 1 [Homo sapiens]",Homo sapiens,40.8,40.8,90%,0.003,22.02,402,"=HYPERLINK(""https://www.ncbi.nlm.nih.gov/protein/8WSS_R?report=genbank&log$=prottop&blast_rank=6&RID=SCSKFR93016"",""8WSS_R"")"
+Description(Sequences  with  E-value WORSE than threshold),Scientific Name,Max Score,Total Score,Query Cover,E value,Per. ident,Acc. Len,Accession  
+
+
+
+		
+
+
